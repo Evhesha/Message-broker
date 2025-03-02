@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "FXtkSS/d2Q8=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Kafka\\MessageBroker.Kafka.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\EvGenii\\.nuget\\packages\\confluent.kafka\\2.8.0\\confluent.kafka.2.8.0.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\librdkafka.redist\\2.8.0\\librdkafka.redist.2.8.0.nupkg.sha512"
+  ],
+  "logs": []
+}

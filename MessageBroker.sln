@@ -7,6 +7,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		docker-compose.yml = docker-compose.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBroker.Kafka", "MessageBroker.Kafka\MessageBroker.Kafka.csproj", "{69C070E1-81EA-44D5-A3E6-541815C6E77F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -17,5 +19,9 @@ Global
 		{E73F9A63-9269-4708-81FF-C6C3C4545418}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E73F9A63-9269-4708-81FF-C6C3C4545418}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E73F9A63-9269-4708-81FF-C6C3C4545418}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69C070E1-81EA-44D5-A3E6-541815C6E77F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69C070E1-81EA-44D5-A3E6-541815C6E77F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69C070E1-81EA-44D5-A3E6-541815C6E77F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69C070E1-81EA-44D5-A3E6-541815C6E77F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
