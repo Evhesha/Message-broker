@@ -8,9 +8,11 @@
     </PropertyGroup>
 
     <ItemGroup>
+        <PackageReference Include="Microsoft.AspNetCore.Cors" Version="2.3.0" />
         <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="9.0.0"/>
         <PackageReference Include="Microsoft.Extensions.AI" Version="9.3.0-preview.1.25114.11" />
         <PackageReference Include="Microsoft.Extensions.AI.Ollama" Version="9.3.0-preview.1.25114.11" />
+        <PackageReference Include="MongoDB.Driver" Version="3.2.1" />
     </ItemGroup>
 
     <ItemGroup>
@@ -21,6 +23,7 @@
 
     <ItemGroup>
       <Folder Include="Controllers\" />
+      <Folder Include="MongoDataAccess\" />
     </ItemGroup>
 
 </Project>
