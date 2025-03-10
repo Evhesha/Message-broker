@@ -4,6 +4,7 @@ import MessageHistory from './components/MessageHistory/MessageHistory';
 import Sidebar from './components/Sidebar/Sidebar';
 import './App.css';
 
+
 const App = () => {
     const [messages, setMessages] = useState([]);
     const [darkMode, setDarkMode] = useState(false);

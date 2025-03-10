@@ -1,9 +1,20 @@
-﻿namespace MessageBroker.Server.Models;
+﻿using MongoDB.Bson;
+using MongoDB.Bson.Serialization.Attributes;
+
+namespace MessageBroker.Server.Models;
 
 public class Message
 {
-    public int Id { get; set; }
-    public string UserMessage { get; set; } = string.Empty;
-    public string BotResponse { get; set; } = string.Empty;
-    public DateTime Date { get; set; }
+    [BsonId]
+    [BsonGuidRepresentation(GuidRepresentation.Standard)]
+    public Guid Id { get; set; }
+    
+    [BsonElement("userMessage")]
+    public required string UserMessage { get; set; }
+    
+    [BsonElement("botResponse")]
+    public required string BotResponse { get; set; }
+    
+    [BsonElement("date")]
+    public required DateTime Date { get; set; } = DateTime.UtcNow;
 }
