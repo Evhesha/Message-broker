@@ -1,0 +1,27 @@
+.message-history {
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.message {
+    margin: 5px 0;
+    padding: 10px 15px;
+    border-radius: 20px;
+    max-width: 70%;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.message.sent {
+    background-color: #007aff; /* Синий цвет для отправленных сообщений */
+    color: white; /* Цвет текста */
+    align-self: flex-end;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
+
+.message.received {
+    background-color: #e5e5ea; /* Серый цвет для полученных сообщений */
+    color: black; /* Цвет текста */
+    align-self: flex-start;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+}
