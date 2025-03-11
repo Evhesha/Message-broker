@@ -1,6 +1,7 @@
 import React from 'react';
 import './ChatContainer.css';
 
+
 const ChatContainer = ({ messages, sendMessage }) => {
     const handleKeyPress = (event) => {
         if (event.key === 'Enter') {
@@ -25,7 +26,8 @@ const ChatContainer = ({ messages, sendMessage }) => {
                     autoFocus
                     onKeyPress={handleKeyPress}
                 />
-                <button onClick={sendMessage}>Отправить</button>
+
+                <button class='button' onClick={sendMessage}>Отправить</button>
             </div>
         </div>
     );
