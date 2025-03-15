@@ -33,11 +33,11 @@ input[type="text"]:focus {
     border-color: #007aff;
 }
 
-button {
+.button {
     margin-left: 10px;
     padding: 10px 15px;
     border: none;
-    border-radius: 50%; /* Закругление кнопок */
+    border-radius: 25px; /* Закругление кнопок */
     background-color: #007aff;
     color: white;
     font-size: 16px;
