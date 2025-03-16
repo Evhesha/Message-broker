@@ -13,14 +13,14 @@
 }
 
 .message.sent {
-    background-color: #007aff; /* Синий цвет для отправленных сообщений */
+    background: linear-gradient(135deg, #4848d6, #294eb4); /* Новый градиент для отправленных сообщений */
     color: white; /* Цвет текста */
     align-self: flex-end;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .message.received {
-    background-color: #e5e5ea; /* Серый цвет для полученных сообщений */
+    background: linear-gradient(135deg, #7e7e7e, #d1d1d1); /* Новый градиент для полученных сообщений */
     color: black; /* Цвет текста */
     align-self: flex-start;
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
