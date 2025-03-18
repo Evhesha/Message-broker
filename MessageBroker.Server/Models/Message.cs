@@ -9,6 +9,10 @@ public class Message
     [BsonGuidRepresentation(GuidRepresentation.Standard)]
     public Guid Id { get; set; }
     
+    [BsonElement("chatId")]
+    [BsonRepresentation(BsonType.String)]
+    public Guid ChatId { get; set; }
+    
     [BsonElement("userMessage")]
     public required string UserMessage { get; set; }
     

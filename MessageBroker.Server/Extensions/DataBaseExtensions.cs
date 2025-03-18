@@ -1,4 +1,5 @@
-﻿using MongoDB.Driver;
+﻿using MessageBroker.Server.MongoDataAccess;
+using MongoDB.Driver;
 
 namespace MessageBroker.Server.Extensions;
 
@@ -8,7 +9,7 @@ public static class DataBaseExtensions
     {
         string mongoConnectionString = configuration.GetConnectionString("MongoConnection");
         services.AddSingleton<IMongoClient>(new MongoClient(mongoConnectionString));
-
+        services.AddScoped<MongoDbContext>();
         return services;
     }
 }
