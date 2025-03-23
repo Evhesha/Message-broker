@@ -1,11 +1,17 @@
 {
   "version": 2,
-  "dgSpecHash": "FXtkSS/d2Q8=",
+  "dgSpecHash": "ntgEziJU2OY=",
   "success": true,
   "projectFilePath": "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Kafka\\MessageBroker.Kafka.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\EvGenii\\.nuget\\packages\\confluent.kafka\\2.8.0\\confluent.kafka.2.8.0.nupkg.sha512",
-    "C:\\Users\\EvGenii\\.nuget\\packages\\librdkafka.redist\\2.8.0\\librdkafka.redist.2.8.0.nupkg.sha512"
+    "C:\\Users\\EvGenii\\.nuget\\packages\\librdkafka.redist\\2.8.0\\librdkafka.redist.2.8.0.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\9.0.3\\microsoft.extensions.configuration.abstractions.9.0.3.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.configuration.binder\\9.0.3\\microsoft.extensions.configuration.binder.9.0.3.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.3\\microsoft.extensions.dependencyinjection.abstractions.9.0.3.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.options\\9.0.3\\microsoft.extensions.options.9.0.3.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.options.configurationextensions\\9.0.3\\microsoft.extensions.options.configurationextensions.9.0.3.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.primitives\\9.0.3\\microsoft.extensions.primitives.9.0.3.nupkg.sha512"
   ],
   "logs": []
 }

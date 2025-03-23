@@ -16,7 +16,7 @@ public class MessagesRepository
         return await _context.Messages.Find(_ => true).ToListAsync(cancellationToken);
     }
 
-    // public async Task<List<Message>> GetMessagesByUserIdAsync(Guid userId, CancellationToken cancellationToken)
+    // public async Task<List<Message>> GetMessagesByChatIdAsync(Guid chatId, CancellationToken cancellationToken)
     // {
     //     return await _dbContext.Messages.Find(m => m.ChatId).ToListAsync(cancellationToken);
     // }
