@@ -7,7 +7,9 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 
 builder.Services.AddOpenApi();
-builder.Services.AddKafkaProducer<Message>(builder.Configuration.GetSection("Kafka:Message"));
+
+builder.Services.AddKafkaProducer<string>(builder.Configuration.GetSection("Kafka:Ollama"));
+
 var app = builder.Build();
 
 if (app.Environment.IsDevelopment())
@@ -21,13 +23,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// app.MapPost("/KafkaOllama", async (IKafkaProducer<Message> kafkaProducer) =>
-// {
-//     await kafkaProducer.ProduceAsync(new Message
-//     {
-//         Id = Guid.NewGuid().ToString(),
-//         
-//     });
-// });
+app.MapPost("/create-ollama-answer", async (IKafkaProducer<string> kafkaProducer) =>
+{
+    await kafkaProducer.ProduceAsync("ollama answer !!!!", default);
+});
 
 app.Run();

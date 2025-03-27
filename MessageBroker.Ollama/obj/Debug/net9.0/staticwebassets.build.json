@@ -1,0 +1,24 @@
+{
+  "Version": 1,
+  "Hash": "Wn7ZEX+2gl+vRKcT7auwSWOJD2g76Nr3g+s6vwY9p1U=",
+  "Source": "MessageBroker.Ollama",
+  "BasePath": "_content/MessageBroker.Ollama",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [
+    {
+      "Identity": "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Server\\MessageBroker.Server.csproj",
+      "Version": 2,
+      "Source": "MessageBroker.Server",
+      "GetPublishAssetsTargets": "ComputeReferencedStaticWebAssetsPublishManifest;GetCurrentProjectPublishStaticWebAssetItems",
+      "AdditionalPublishProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalPublishPropertiesToRemove": "WebPublishProfileFile;TargetFramework",
+      "GetBuildAssetsTargets": "GetCurrentProjectBuildStaticWebAssetItems",
+      "AdditionalBuildProperties": "Configuration=Debug;Platform=AnyCPU",
+      "AdditionalBuildPropertiesToRemove": "WebPublishProfileFile;TargetFramework"
+    }
+  ],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
