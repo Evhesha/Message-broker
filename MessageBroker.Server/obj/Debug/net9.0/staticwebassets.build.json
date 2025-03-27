@@ -1,0 +1,12 @@
+{
+  "Version": 1,
+  "Hash": "d0Zp1yu2UUVyRcNK9xPFd5UdGwP+SKarWDRuhB1EVsU=",
+  "Source": "MessageBroker.Server",
+  "BasePath": "_content/MessageBroker.Server",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [],
+  "Assets": [],
+  "Endpoints": []
+}
