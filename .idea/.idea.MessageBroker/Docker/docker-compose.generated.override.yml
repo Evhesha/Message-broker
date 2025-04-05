@@ -1,0 +1,40 @@
+# This is a generated file. Not intended for manual editing.
+services:
+  messagebroker.ollama:
+    build:
+      context: "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker"
+      dockerfile: "MessageBroker.Ollama/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/MessageBroker.Ollama.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "messagebroker.ollama:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\EvGenii\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Ollama:/app:rw"
+    - "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker:/src:rw"
+    working_dir: "/app"
+  messagebroker.server:
+    build:
+      context: "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker"
+      dockerfile: "MessageBroker.Server/Dockerfile"
+      target: "base"
+    command: []
+    entrypoint:
+    - "dotnet"
+    - "/app/bin/Debug/net9.0/MessageBroker.Server.dll"
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      DOTNET_USE_POLLING_FILE_WATCHER: "true"
+    image: "messagebroker.server:dev"
+    ports: []
+    volumes:
+    - "C:\\Users\\EvGenii\\.nuget\\packages:/home/app/.nuget/packages"
+    - "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Server:/app:rw"
+    - "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker:/src:rw"
+    working_dir: "/app"

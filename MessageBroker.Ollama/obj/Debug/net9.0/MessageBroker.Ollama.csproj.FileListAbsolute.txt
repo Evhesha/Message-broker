@@ -29,10 +29,6 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\MongoDB.Driver.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\SharpCompress.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\Snappier.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\System.Net.Http.Json.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\System.Text.Json.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\System.Threading.Channels.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\ZstdSharp.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\runtimes\linux-arm64\native\librdkafka.so
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\runtimes\linux-x64\native\alpine-librdkafka.so
