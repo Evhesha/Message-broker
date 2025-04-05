@@ -1,22 +1,25 @@
-﻿FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
+﻿# Используем базовый образ для runtime
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS base
 USER $APP_UID
 WORKDIR /app
-EXPOSE 8080
-EXPOSE 8081
+EXPOSE 5000
 
+# Этап сборки
 FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
-ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["MessageBroker.Server/MessageBroker.Server.csproj", "MessageBroker.Server/"]
+COPY ["MessageBroker.Kafka/MessageBroker.Kafka.csproj", "MessageBroker.Kafka/"]
 RUN dotnet restore "MessageBroker.Server/MessageBroker.Server.csproj"
+
 COPY . .
 WORKDIR "/src/MessageBroker.Server"
-RUN dotnet build "MessageBroker.Server.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "MessageBroker.Server.csproj" -c Release -o /app/build
 
+# Этап публикации
 FROM build AS publish
-ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "MessageBroker.Server.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "MessageBroker.Server.csproj" -c Release -o /app/publish /p:UseAppHost=false
 
+# Финальный образ
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .

@@ -23,9 +23,11 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.MapPost("/create-ollama-answer", async (IKafkaProducer<string> kafkaProducer) =>
+app.MapPost("/create-ollama-answer", async (IKafkaProducer<string> kafkaProducer) => 
 {
+    Console.WriteLine("Отправка сообщения в Kafka...");
     await kafkaProducer.ProduceAsync("ollama answer !!!!", default);
+    Console.WriteLine("Сообщение отправлено!");
 });
 
 app.Run();

@@ -1,25 +1,37 @@
-﻿version: '3.8'
-
-networks:
+﻿networks:
   messagebroker_network:
     driver: bridge
 
 services:
-  messagebroker.server:
-    image: messagebroker.server
-    build:
-      context: .
-      dockerfile: MessageBroker.Server/Dockerfile
-    depends_on:
-      - mongo
-      - kafka
-    environment:
-      KAFKA_SERVERS: kafka:9092 # Переменная среды для адреса Kafka
-    ports:
-      - "5000:5000" # Пример порта, который может быть использован сервером
-    networks:
-      - messagebroker_network
-
+  #   messagebroker.server:
+  #     image: messagebroker.server
+  #     build:
+  #       context: .
+  #       dockerfile: MessageBroker.Server/Dockerfile
+  #     depends_on:
+  #       - mongo
+  #       - kafka
+  #     environment:
+  #       KAFKA_SERVERS: kafka:9092
+  #     ports:
+  #       - "5000:5000"
+  #     networks:
+  #       - messagebroker_network
+  
+  #     messagebroker.ollama:
+  #       image: messagebroker.ollama
+  #       build:
+  #         context: .
+  #         dockerfile: MessageBroker.Ollama/Dockerfile
+  #       depends_on:
+  #         - kafka
+  #       environment:
+  #         KAFKA_SERVERS: kafka:9092
+  #       ports:
+  #         - "5001:5001"
+  #       networks:
+  #         - messagebroker_network
+      
   mongo:
     image: mongo
     restart: always
@@ -39,7 +51,7 @@ services:
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: 123
-      ME_CONFIG_MONGODB_URL: mongodb://root:123@mongo:27017/ 
+      ME_CONFIG_MONGODB_URL: mongodb://root:123@mongo:27017/
       ME_CONFIG_BASICAUTH: "false"
     depends_on:
       - mongo
@@ -50,7 +62,6 @@ services:
     image: confluentinc/cp-zookeeper:latest
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
-      ZOOKEEPER_TICK_TIME: 2000
     ports:
       - "2181:2181"
     networks:
@@ -60,18 +71,15 @@ services:
     image: confluentinc/cp-kafka:latest
     depends_on:
       - zookeeper
-    ports:
-      - "9092:9092"
     environment:
-      KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
-      KAFKA_LISTENERS: PLAINTEXT://0.0.0.0:9092 # Протокол для входящих соединений
-      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092 # В Docker сети Kafka будет доступна по имени "kafka"
-      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
       KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
-      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1 
-      KAFKA_MESSAGE_MAX_BYTES: 200000000 
-      KAFKA_REPLICA_FETCH_MAX_BYTES: 200000000
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "29092:29092"
     networks:
       - messagebroker_network
 
@@ -79,10 +87,10 @@ services:
     image: provectuslabs/kafka-ui:latest
     container_name: kafka-ui
     ports:
-      - "8080:8080" 
+      - "8080:8080"
     environment:
       KAFKA_CLUSTERS_0_NAME: local
-      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092 
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
       KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
     depends_on:
       - kafka
@@ -92,13 +100,13 @@ services:
   ollama:
     image: ollama/ollama:latest
     ports:
-      - "8000:8000" 
+      - "8000:8000"
     environment:
-      OLLAMA_CONFIG_PATH: /app/config/config.yaml 
+      OLLAMA_CONFIG_PATH: /app/config/config.yaml
     volumes:
-      - ./ollama/config:/app/config 
+      - ./ollama/config:/app/config
     depends_on:
-      - mongo
       - kafka
+      - mongo
     networks:
       - messagebroker_network

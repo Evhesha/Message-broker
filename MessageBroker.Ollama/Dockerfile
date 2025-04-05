@@ -8,6 +8,8 @@ FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
 COPY ["MessageBroker.Ollama/MessageBroker.Ollama.csproj", "MessageBroker.Ollama/"]
+COPY ["MessageBroker.Kafka/MessageBroker.Kafka.csproj", "MessageBroker.Kafka/"]
+COPY ["MessageBroker.Server/MessageBroker.Server.csproj", "MessageBroker.Server/"]
 RUN dotnet restore "MessageBroker.Ollama/MessageBroker.Ollama.csproj"
 COPY . .
 WORKDIR "/src/MessageBroker.Ollama"
