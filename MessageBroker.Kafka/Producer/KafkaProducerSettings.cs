@@ -1,6 +1,6 @@
-﻿namespace MessageBroker.Kafka.Producer;
+﻿namespace MessageBroker.Kafka;
 
-public class KafkaSettings
+public class KafkaProducerSettings
 {
     public string BootstrapServers { get; set; } = string.Empty;
     public string Topic { get; set; } = string.Empty;

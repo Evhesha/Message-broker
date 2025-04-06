@@ -10,7 +10,7 @@ public class KafkaOllamaProducer<TMessage> : IKafkaProducer<TMessage>
     private readonly IProducer<string, TMessage> producer;
     private readonly string topic;
 
-    public KafkaOllamaProducer(IOptions<KafkaSettings> kafkaSettings)
+    public KafkaOllamaProducer(IOptions<KafkaProducerSettings> kafkaSettings)
     {
         var config = new ProducerConfig
         {

@@ -8,7 +8,7 @@ public static class ProducerExtensions
 {
     public static void AddKafkaProducer<TMessage>(this IServiceCollection serviceCollection, IConfiguration configuration)
     {
-        serviceCollection.Configure<KafkaSettings>(configuration);
+        serviceCollection.Configure<KafkaProducerSettings>(configuration);
         serviceCollection.AddSingleton<IKafkaProducer<TMessage>, KafkaOllamaProducer<TMessage>>();
     }
 }
