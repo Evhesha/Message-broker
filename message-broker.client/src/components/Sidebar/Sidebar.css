@@ -4,6 +4,8 @@
     border-right: 1px solid #dddddd;
     padding: 20px;
     transition: background-color 0.3s;
+    display: flex;
+    flex-direction: column;
 }
 
 .sidebar.dark {
@@ -11,23 +13,85 @@
     color: white;
 }
 
-.theme-toggle,
-.new-chat {
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 8px;
+}
+
+.btn {
     cursor: pointer;
-    background: #007aff;
+    border: none;
+    border-radius: 50%;
+    width: 36px;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    background-color: transparent;
+}
+
+.theme-toggle {
+    color: #ffc107;
+}
+
+.theme-toggle:hover {
+    background-color: rgba(255, 193, 7, 0.1);
+}
+
+.language-toggle {
+    color: #0d6efd;
+}
+
+.language-toggle:hover {
+    background-color: rgba(13, 110, 253, 0.1);
+}
+
+.login-button {
+    cursor: pointer;
+    background-color: #198754;
+    color: white;
     border: none;
     border-radius: 20px;
-    color: white;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
+.login-button:hover {
+    background-color: #157347;
+}
+
+.login-text {
+    font-size: 14px;
+}
+
+.login-icon {
+    margin-left: 4px;
+}
+
+.new-chat {
+    cursor: pointer;
+    background: white;
+    border: 2px solid #4caf50;
+    border-radius: 20px;
+    color: #4caf50;
     font-size: 16px;
     margin-bottom: 20px;
     padding: 10px;
     width: 100%;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, color 0.2s;
 }
 
-.theme-toggle:hover,
 .new-chat:hover {
-    background-color: #0051a8;
+    background-color: #4caf50;
+    color: white;
 }
 
 h3 {
@@ -37,6 +101,8 @@ h3 {
 .chat-list {
     list-style: none;
     padding: 0;
+    flex-grow: 1;
+    overflow-y: auto;
 }
 
 .chat-title {
@@ -50,4 +116,33 @@ h3 {
 
 .chat-title:hover {
     background-color: #e0e0e5;
+}
+
+.sidebar.dark .chat-title {
+    background-color: #3a3a3c;
+    color: white;
+}
+
+.sidebar.dark .chat-title:hover {
+    background-color: #4a4a4c;
+}
+
+.sidebar.dark .new-chat {
+    background: #2c2c2e;
+    color: #4caf50;
+    border-color: #4caf50;
+}
+
+.sidebar.dark .new-chat:hover {
+    background-color: #4caf50;
+    color: white;
+}
+
+.sidebar.dark .login-button {
+    background-color: #198754;
+    color: white;
+}
+
+.sidebar.dark .login-button:hover {
+    background-color: #157347;
 }
