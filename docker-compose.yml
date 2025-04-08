@@ -100,13 +100,9 @@ services:
   ollama:
     image: ollama/ollama:latest
     ports:
-      - "8000:8000"
+      - "11434:11434"
     environment:
-      OLLAMA_CONFIG_PATH: /app/config/config.yaml
-    volumes:
-      - ./ollama/config:/app/config
-    depends_on:
-      - kafka
-      - mongo
+      OLLAMA_CONTEXT_LENGTH: 1024 # Уменьшение длины контекста
+      OLLAMA_KV_CACHE_TYPE: none # Отключение кэширования
     networks:
       - messagebroker_network

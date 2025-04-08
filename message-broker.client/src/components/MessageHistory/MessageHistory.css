@@ -10,18 +10,19 @@
     max-width: 70%;
     display: inline-block;
     font-size: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1); /* Легкая тень */
 }
 
+/* Стиль для отправленных сообщений */
 .message.sent {
-    background: linear-gradient(135deg, #4848d6, #294eb4); /* Новый градиент для отправленных сообщений */
+    background: linear-gradient(135deg, #4caf50, #388e3c); /* Зеленый градиент */
     color: white; /* Цвет текста */
     align-self: flex-end;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }
 
+/* Стиль для полученных сообщений */
 .message.received {
-    background: linear-gradient(135deg, #7e7e7e, #d1d1d1); /* Новый градиент для полученных сообщений */
+    background: linear-gradient(135deg, #dcdbdb, #bdbdbd); /* Светло-серый градиент */
     color: black; /* Цвет текста */
     align-self: flex-start;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
 }

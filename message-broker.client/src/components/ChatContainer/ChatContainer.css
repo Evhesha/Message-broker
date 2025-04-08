@@ -1,117 +1,222 @@
-/* Основной контейнер чата */
+/* Основные стили */
 .chat-container {
-    flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 20px;
-    background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: 100%;
+    background-color: #f5f5f5;
     transition: background-color 0.3s;
-    position: relative; /* Позиционирование для центрирования */
 }
 
-/* Контейнер для сообщений */
+.chat-container.dark {
+    background-color: #2d2d2d;
+}
+
+/* Контейнер сообщений */
 .messages {
     flex: 1;
     overflow-y: auto;
+    padding: 20px;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Центрирование сообщений */
-    justify-content: center; /* Центрирование по высоте */
+    gap: 15px;
 }
 
 /* Приветственное сообщение */
 .welcome-message {
-    background-color: #ffffff; /* Цвет фона для карточки */
-    color: #333; /* Цвет текста */
-    text-align: center; /* Центрирование текста */
-    
-    padding: 40px; /* Увеличенные отступы для высоты */
-    border-radius: 20px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15); /* Более глубокая тень */
-    
-    margin: 0; /* Убираем отступы */
-    animation: slideIn 0.5s ease; /* Анимация появления */
-    
-    position: absolute; /* Абсолютное позиционирование */
-    top: 50%; /* Центрируем по вертикали */
-    left: 50%; /* Центрируем по горизонтали */
-    transform: translate(-50%, -50%); /* Сдвиг для центрирования */
-    width: 300px; /* Фиксированная ширина */
-}
-
-/* Анимация появления */
-@keyframes slideIn {
-    from {
-        transform: translate(-50%, -60px);
-        opacity: 0;
-    }
-    to {
-        transform: translate(-50%, -50%);
-        opacity: 1;
-    }
-}
-
-/* Сообщения от бота */
-.message.bot {
-    background: #f0f0f0; /* Цвет для бот-сообщений */
-    color: black; /* Цвет текста */
-    align-self: flex-start; /* Выравнивание сообщений по левому краю */
-}
-
-/* Отправленные сообщения */
-.message.sent {
-    background: linear-gradient(135deg, #4848d6, #294eb4);
+    background: linear-gradient(135deg, #6e8efb, #a777e3);
     color: white;
-    align-self: flex-end; /* Выравнивание сообщений по правому краю */
+    border-radius: 20px;
+    padding: 25px;
+    margin: 20px auto;
+    max-width: 80%;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    animation-duration: 0.8s;
 }
 
-/* Контейнер для ввода сообщений */
-.input-container {
+.welcome-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.welcome-icon {
+    margin-bottom: 15px;
+    color: white;
+}
+
+.welcome-text {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* Контейнеры сообщений */
+.message-container {
+    display: flex;
+    animation-duration: 0.3s;
+}
+
+.sent-container {
+    justify-content: flex-end;
+}
+
+.received-container {
+    justify-content: flex-start;
+}
+
+/* Стили сообщений */
+.message {
+    display: flex;
+    max-width: 70%;
+    border-radius: 18px;
+    padding: 12px 15px;
+    position: relative;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.message.sent {
+    background: linear-gradient(135deg, #00b09b, #96c93d);
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+.message.received {
+    background: white;
+    color: #333;
+    border-bottom-left-radius: 5px;
+}
+
+.dark .message.received {
+    background: #3a3a3a;
+    color: #f0f0f0;
+}
+
+.message-header {
+    margin-right: 10px;
     display: flex;
     align-items: center;
-    margin-top: 10px;
 }
 
-/* Поле ввода сообщения */
-input[type="text"] {
-    flex: 1;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 25px;
-    outline: none;
-    font-size: 16px;
-    
-    transition: border 0.3s, box-shadow 0.3s;
-}
-
-/* Стили при фокусе на поле ввода */
-input[type="text"]:focus {
-    border-color: #007aff;
-    box-shadow: 0 0 5px rgba(0, 122, 255, 0.5);
-}
-
-/* Кнопка отправки */
-.button {
-    margin-left: 10px;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 25px;
-    background-color: #007aff;
+.user-icon {
     color: white;
-    font-size: 16px;
-    
-    cursor: pointer;
-    transition: background-color 0.2s, transform 0.1s;
 }
 
-/* Стили при наведении на кнопку */
-.button:hover {
-    background-color: #0051a8;
+.bot-icon {
+    color: #6e8efb;
 }
 
-/* Стили при нажатии на кнопку */
-.button:active {
-    transform: scale(0.95);
+.dark .bot-icon {
+    color: #a777e3;
+}
+
+.message-content {
+    flex: 1;
+}
+
+.message-text {
+    word-wrap: break-word;
+    line-height: 1.4;
+}
+
+.message-time {
+    font-size: 11px;
+    opacity: 0.8;
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+    justify-content: flex-end;
+}
+
+.time-icon {
+    margin-right: 4px;
+}
+
+.sent .message-time {
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.received .message-time {
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.dark .received .message-time {
+    color: rgba(255, 255, 255, 0.6);
+}
+
+/* Поле ввода */
+.input-container {
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.dark .input-container {
+    background-color: #343434;
+    border-top: 1px solid #444;
+}
+
+.message-input {
+    border-radius: 20px !important;
+    resize: none;
+    padding: 12px 15px !important;
+    border: 1px solid #ddd !important;
+    box-shadow: none !important;
+}
+
+.dark .message-input {
+    background-color: #3a3a3a !important;
+    color: white !important;
+    border-color: #555 !important;
+}
+
+.message-input:focus {
+    box-shadow: 0 0 0 0.25rem rgba(110, 142, 251, 0.25) !important;
+    border-color: #6e8efb !important;
+}
+
+.send-button {
+    border-radius: 50% !important;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 10px;
+}
+
+/* Анимации */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate__animated {
+    animation-fill-mode: both;
+}
+
+.animate__fadeIn {
+    animation-name: fadeIn;
+}
+
+/* Кастомизация скроллбара */
+.messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 3px;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 3px;
+}
+
+.dark .messages::-webkit-scrollbar-track {
+    background: #3a3a3a;
+}
+
+.dark .messages::-webkit-scrollbar-thumb {
+    background: #555;
 }
