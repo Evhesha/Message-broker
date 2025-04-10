@@ -1224,6 +1224,7 @@
         "type": "project",
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
+          "MessageBroker.Kafka": "1.0.0",
           "Microsoft.AspNetCore.Cors": "2.3.0",
           "Microsoft.AspNetCore.OpenApi": "9.0.0",
           "Microsoft.Extensions.AI": "9.3.0-preview.1.25114.11",

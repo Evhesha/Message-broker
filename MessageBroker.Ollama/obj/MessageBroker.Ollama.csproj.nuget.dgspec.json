@@ -200,7 +200,11 @@
         "frameworks": {
           "net9.0": {
             "targetAlias": "net9.0",
-            "projectReferences": {}
+            "projectReferences": {
+              "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Kafka\\MessageBroker.Kafka.csproj": {
+                "projectPath": "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Kafka\\MessageBroker.Kafka.csproj"
+              }
+            }
           }
         },
         "warningProperties": {
