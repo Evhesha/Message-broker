@@ -1,4 +1,7 @@
+using MessageBroker.Kafka.Producer.Abstractions;
+using MessageBroker.Kafka.Producer.Extensions;
 using MessageBroker.Server.Extensions;
+using Microsoft.Extensions.AI;
 using MongoDB.Driver;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,6 +13,8 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddCustomCors(builder.Configuration);
 builder.Services.AddDataBase(builder.Configuration);
+
+builder.Services.AddKafkaProducer<string>(builder.Configuration.GetSection("Kafka:Question"));
 
 var app = builder.Build();
 
@@ -23,5 +28,15 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+app.MapPost("/create-ollama-question", async (HttpContext httpContext) =>
+{
+    var kafkaProducer = httpContext.RequestServices.GetRequiredService<IKafkaProducer<string>>();
+
+    Console.WriteLine("Requesting a message to Kafka from server...");
+    await kafkaProducer.ProduceAsync("What is Brawl Starts?", default);
+    Console.WriteLine("Message sent to Kafka!");
+});
+
 
 app.Run();

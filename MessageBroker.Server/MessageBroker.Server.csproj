@@ -25,4 +25,8 @@
       <Folder Include="Controllers\" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\MessageBroker.Kafka\MessageBroker.Kafka.csproj" />
+    </ItemGroup>
+
 </Project>

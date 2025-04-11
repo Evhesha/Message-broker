@@ -16,8 +16,9 @@ var app = builder.Build();
 
 var chatClient = app.Services.GetRequiredService<IChatClient>();
 
-var chatResponse = await chatClient.GetResponseAsync("What is .NET");
-
+Console.WriteLine("Write your question --> ");
+string question = Console.ReadLine();
+var chatResponse = await chatClient.GetResponseAsync(question);
 
 if (app.Environment.IsDevelopment())
 {
@@ -32,10 +33,9 @@ app.MapControllers();
 
 app.MapPost("/create-ollama-answer", async (IKafkaProducer<IList<ChatMessage>> kafkaProducer, HttpContext httpContext) => 
 {
-    Console.WriteLine("Отправка сообщения в Kafka...");
+    Console.WriteLine("Requesting a message to Kafka from ollama service...");
     await kafkaProducer.ProduceAsync(chatResponse.Messages, default);
-    Console.WriteLine("Сообщение отправлено!");
+    Console.WriteLine("Message sent to Kafka!");
 });
-
 
 app.Run();
