@@ -1,3 +1,5 @@
+using MessageBroker.Kafka.Consumer;
+using MessageBroker.Kafka.Consumer.Extensions;
 using MessageBroker.Kafka.Producer.Abstractions;
 using MessageBroker.Kafka.Producer.Extensions;
 using MessageBroker.Server.Models;
@@ -11,6 +13,9 @@ builder.Services.AddOpenApi();
 
 builder.Services.AddKafkaProducer<IList<ChatMessage>>(builder.Configuration.GetSection("Kafka:Ollama"));
 builder.Services.AddChatClient(new OllamaChatClient(new Uri("http://localhost:11434"), "tinyllama"));
+
+builder.Services.AddKafkaConsumer<string, QuestionMessageHandler>(
+    builder.Configuration.GetSection("Kafka:Question"));
 
 var app = builder.Build();
 
