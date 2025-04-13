@@ -1,0 +1,7 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="true" type="CompoundRunConfigurationType">
+    <toRun name="MessageBroker.Ollama: https" type="LaunchSettings" />
+    <toRun name="MessageBroker.Server: https" type="LaunchSettings" />
+    <method v="2" />
+  </configuration>
+</component>
