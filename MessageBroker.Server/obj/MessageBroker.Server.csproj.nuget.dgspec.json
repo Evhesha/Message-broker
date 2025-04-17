@@ -54,6 +54,14 @@
               "target": "Package",
               "version": "[2.8.0, )"
             },
+            "Microsoft.Extensions.AI": {
+              "target": "Package",
+              "version": "[9.4.0-preview.1.25207.5, )"
+            },
+            "Microsoft.Extensions.AI.Ollama": {
+              "target": "Package",
+              "version": "[9.4.0-preview.1.25207.5, )"
+            },
             "Microsoft.Extensions.Hosting": {
               "target": "Package",
               "version": "[9.0.3, )"
@@ -140,14 +148,6 @@
             "Microsoft.AspNetCore.OpenApi": {
               "target": "Package",
               "version": "[9.0.0, )"
-            },
-            "Microsoft.Extensions.AI": {
-              "target": "Package",
-              "version": "[9.3.0-preview.1.25114.11, )"
-            },
-            "Microsoft.Extensions.AI.Ollama": {
-              "target": "Package",
-              "version": "[9.3.0-preview.1.25114.11, )"
             },
             "MongoDB.Driver": {
               "target": "Package",

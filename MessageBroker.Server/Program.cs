@@ -18,6 +18,9 @@ builder.Services.AddKafkaProducer<string>(builder.Configuration.GetSection("Kafk
 
 var app = builder.Build();
 
+Console.Write("Write your question --> ");
+string question = Console.ReadLine();
+
 if (app.Environment.IsDevelopment())
 {
     app.MapOpenApi();
@@ -34,7 +37,7 @@ app.MapPost("/create-ollama-question", async (HttpContext httpContext) =>
     var kafkaProducer = httpContext.RequestServices.GetRequiredService<IKafkaProducer<string>>();
 
     Console.WriteLine("Requesting a message to Kafka from server...");
-    await kafkaProducer.ProduceAsync("What is Brawl Starts?", default);
+    await kafkaProducer.ProduceAsync(question, default);
     Console.WriteLine("Message sent to Kafka!");
 });
 
