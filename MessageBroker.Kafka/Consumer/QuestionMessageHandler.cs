@@ -1,44 +1,30 @@
-﻿using System.Text;
-using System.Text.Json;
+﻿using MessageBroker.Kafka.Consumer;
 using MessageBroker.Kafka.Consumer.Abstractions;
+using MessageBroker.Kafka.Producer.Abstractions;
 
-namespace MessageBroker.Kafka.Consumer;
+using Microsoft.Extensions.AI;
 
 public class QuestionMessageHandler : IMessageHandler<string>
 {
-    private readonly HttpClient _httpClient;
+    private readonly IChatClient _chatClient;
+    private readonly IKafkaProducer<IList<ChatMessage>> _kafkaProducer;
 
-    public QuestionMessageHandler()
+    public QuestionMessageHandler(IChatClient chatClient, IKafkaProducer<IList<ChatMessage>> kafkaProducer)
     {
-        _httpClient = new HttpClient(); // HttpClient для отправки POST
+        _chatClient = chatClient;
+        _kafkaProducer = kafkaProducer;
     }
 
     public async Task HandleAsync(string message, CancellationToken cancellationToken)
     {
-        Console.WriteLine($"Received message: {message}");
+        Console.WriteLine($"Received message from Kafka: {message}");
 
-        var postContent = new StringContent(
-            JsonSerializer.Serialize(new { Question = message }), // Тело запроса
-            Encoding.UTF8,
-            "application/json");
+        // AI-клиент обрабатывает сообщение
+        var chatResponse = await _chatClient.GetResponseAsync(message);
 
-        try
-        {
-            // Отправляем POST-запрос
-            var response = await _httpClient.PostAsync("https://localhost:5001/create-ollama-answer", postContent, cancellationToken);
+        // Отправляем ответ в другой топик Kafka
+        await _kafkaProducer.ProduceAsync(chatResponse.Messages, cancellationToken);
 
-            if (response.IsSuccessStatusCode)
-            {
-                Console.WriteLine("Message successfully posted to /create-ollama-answer.");
-            }
-            else
-            {
-                Console.WriteLine($"Failed to post message. Status code: {response.StatusCode}");
-            }
-        }
-        catch (Exception ex)
-        {
-            Console.WriteLine($"Error while posting message: {ex.Message}");
-        }
+        Console.WriteLine("Answer processed and sent to another Kafka topic!");
     }
 }
