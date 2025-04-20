@@ -4,32 +4,21 @@ import MessageHistory from './components/MessageHistory/MessageHistory';
 import Sidebar from './components/Sidebar/Sidebar';
 import './App.css';
 
-
 const App = () => {
     const [messages, setMessages] = useState([]);
     const [darkMode, setDarkMode] = useState(false);
     const [chatHistory, setChatHistory] = useState([]);
 
-    const sendMessage = () => {
-        const input = document.getElementById('messageInput');
-        const messageText = input.value.trim();
-        if (messageText) {
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { text: messageText, type: 'sent' },
-            ]);
-            input.value = '';
+    const sendMessage = (messageText) => {
+        if (messageText.trim()) {
+            setMessages((prevMessages) => [...prevMessages, { text: messageText, type: 'sent' }]);
             simulateResponse(messageText);
         }
     };
 
     const simulateResponse = (userMessage) => {
         setTimeout(() => {
-            const responseMessage = `Вы сказали: "${userMessage}"`;
-            setMessages((prevMessages) => [
-                ...prevMessages,
-                { text: responseMessage, type: 'received' },
-            ]);
+            setMessages((prevMessages) => [...prevMessages, { text: `Вы сказали: "${userMessage}"`, type: 'received' }]);
         }, 1000);
     };
 
@@ -39,11 +28,7 @@ const App = () => {
 
     const startNewChat = () => {
         setMessages([]);
-        const chatTitle = `Чат ${chatHistory.length + 1}`;
-        setChatHistory((prevHistory) => [
-            ...prevHistory,
-            { title: chatTitle, messages: [] },
-        ]);
+        setChatHistory((prevHistory) => [...prevHistory, { title: `Чат ${chatHistory.length + 1}`, messages: [] }]);
     };
 
     return (
@@ -51,7 +36,7 @@ const App = () => {
             <Sidebar toggleTheme={toggleTheme} startNewChat={startNewChat} chatHistory={chatHistory} />
             <div className="chat-area">
                 <MessageHistory messages={messages} />
-                <ChatContainer messages={messages} sendMessage={sendMessage} />
+                <ChatContainer messages={messages} setMessages={setMessages} sendMessage={sendMessage} />
             </div>
         </div>
     );

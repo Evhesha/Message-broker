@@ -2,16 +2,11 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Button, InputGroup, Form } from 'react-bootstrap';
 import { Send, Clock, PersonFill, Robot } from 'react-bootstrap-icons';
 import './ChatContainer.css';
+import { PostQuestion } from '../../Queries/Ollama/PostQuestion';
 
-const ChatContainer = ({ messages, sendMessage, darkMode }) => {
-    const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
+const ChatContainer = ({ messages, setMessages, darkMode }) => {
+    const [inputMessage, setInputMessage] = useState('');
     const messagesEndRef = useRef(null);
-    
-    const welcomeMessage = {
-        text: "👋 Добро пожаловать в FITR Assistant! Я здесь чтобы помочь вам с любыми вопросами. Просто напишите, и я постараюсь ответить! 😊",
-        type: 'received',
-        timestamp: new Date()
-    };
 
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -24,34 +19,32 @@ const ChatContainer = ({ messages, sendMessage, darkMode }) => {
         }
     };
 
-    const handleSendMessage = () => {
-        sendMessage();
-        if (showWelcomeMessage) setShowWelcomeMessage(false);
+    const handleSendMessage = async () => {
+        if (!inputMessage.trim()) return;
+    
+        const userMessage = { text: inputMessage, type: 'sent', timestamp: new Date() };
+        setMessages([...messages, userMessage]);
+    
+        try {
+            const response = await PostQuestion({ question: inputMessage }); // Запрос
+            const botMessage = { text: response.message || "Ответ не получен", type: 'received', timestamp: new Date() };
+            setMessages([...messages, userMessage, botMessage]); 
+        } catch (error) {
+            console.error('Ошибка при отправке:', error);
+        }
+    
+        setInputMessage('');
+        scrollToBottom();
     };
+    
 
     useEffect(() => {
-        if (messages.length > 0) {
-            setShowWelcomeMessage(false);
-        }
         scrollToBottom();
     }, [messages]);
 
-    const formatTime = (date) => {
-        return new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-    };
-
     return (
         <div className={`chat-container ${darkMode ? 'dark' : ''}`}>
-            <div className="messages" id="messages">
-                {showWelcomeMessage && (
-                    <div className="welcome-message animate__animated animate__fadeIn">
-                        <div className="welcome-content">
-                            <Robot size={40} className="welcome-icon" />
-                            <div className="welcome-text">{welcomeMessage.text}</div>
-                        </div>
-                    </div>
-                )}
-                
+            <div className="messages">
                 {messages.map((msg, index) => (
                     <div 
                         key={index} 
@@ -60,17 +53,13 @@ const ChatContainer = ({ messages, sendMessage, darkMode }) => {
                     >
                         <div className={`message ${msg.type}`}>
                             <div className="message-header">
-                                {msg.type === 'sent' ? (
-                                    <PersonFill className="user-icon" />
-                                ) : (
-                                    <Robot className="bot-icon" />
-                                )}
+                                {msg.type === 'sent' ? <PersonFill className="user-icon" /> : <Robot className="bot-icon" />}
                             </div>
                             <div className="message-content">
                                 <div className="message-text">{msg.text}</div>
                                 <div className="message-time">
                                     <Clock size={12} className="time-icon" />
-                                    {formatTime(msg.timestamp)}
+                                    {new Date(msg.timestamp).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                                 </div>
                             </div>
                         </div>
@@ -84,8 +73,9 @@ const ChatContainer = ({ messages, sendMessage, darkMode }) => {
                     <Form.Control
                         as="textarea"
                         rows={1}
-                        id="messageInput"
+                        value={inputMessage}
                         placeholder="Введите сообщение..."
+                        onChange={(e) => setInputMessage(e.target.value)}
                         onKeyPress={handleKeyPress}
                         className={`message-input ${darkMode ? 'dark' : ''}`}
                     />
