@@ -16,11 +16,11 @@ public class QuestionMessageHandler : IMessageHandler<string>
 
     public async Task HandleAsync(string message, CancellationToken cancellationToken)
     {
-        Console.WriteLine($"Received message from Kafka: {message}");
+        Console.WriteLine($"Received message from Kafka ollama question: {message}");
         
         var chatResponse = await _chatClient.GetResponseAsync(message);
         await _kafkaProducer.ProduceAsync(chatResponse.Messages, cancellationToken);
 
-        Console.WriteLine("Answer processed and sent to another Kafka topic!");
+        Console.WriteLine("Answer processed and sent to answer Kafka topic!");
     }
 }
