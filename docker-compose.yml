@@ -1,22 +1,47 @@
-﻿version: '3.8'
+﻿networks:
+  messagebroker_network:
+    driver: bridge
 
 services:
-  messagebroker.server:
-    image: messagebroker.server
-    build:
-      context: .
-      dockerfile: MessageBroker.Server/Dockerfile
-    depends_on:
-      - mongo
-
+  #   messagebroker.server:
+  #     image: messagebroker.server
+  #     build:
+  #       context: .
+  #       dockerfile: MessageBroker.Server/Dockerfile
+  #     depends_on:
+  #       - mongo
+  #       - kafka
+  #     environment:
+  #       KAFKA_SERVERS: kafka:9092
+  #     ports:
+  #       - "5000:5000"
+  #     networks:
+  #       - messagebroker_network
+  
+  #     messagebroker.ollama:
+  #       image: messagebroker.ollama
+  #       build:
+  #         context: .
+  #         dockerfile: MessageBroker.Ollama/Dockerfile
+  #       depends_on:
+  #         - kafka
+  #       environment:
+  #         KAFKA_SERVERS: kafka:9092
+  #       ports:
+  #         - "5001:5001"
+  #       networks:
+  #         - messagebroker_network
+      
   mongo:
     image: mongo
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: example
+      MONGO_INITDB_ROOT_PASSWORD: 123
     ports:
-      - "27017:27017" 
+      - "27017:27017"
+    networks:
+      - messagebroker_network
 
   mongo-express:
     image: mongo-express
@@ -25,8 +50,59 @@ services:
       - "8081:8081"
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
-      ME_CONFIG_MONGODB_ADMINPASSWORD: example
-      ME_CONFIG_MONGODB_URL: mongodb://root:example@mongo:27017/
+      ME_CONFIG_MONGODB_ADMINPASSWORD: 123
+      ME_CONFIG_MONGODB_URL: mongodb://root:123@mongo:27017/
       ME_CONFIG_BASICAUTH: "false"
     depends_on:
       - mongo
+    networks:
+      - messagebroker_network
+
+  zookeeper:
+    image: confluentinc/cp-zookeeper:latest
+    environment:
+      ZOOKEEPER_CLIENT_PORT: 2181
+    ports:
+      - "2181:2181"
+    networks:
+      - messagebroker_network
+
+  kafka:
+    image: confluentinc/cp-kafka:latest
+    depends_on:
+      - zookeeper
+    environment:
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://kafka:9092,PLAINTEXT_HOST://localhost:29092
+      KAFKA_LISTENER_SECURITY_PROTOCOL_MAP: PLAINTEXT:PLAINTEXT,PLAINTEXT_HOST:PLAINTEXT
+      KAFKA_INTER_BROKER_LISTENER_NAME: PLAINTEXT
+      KAFKA_DEFAULT_REPLICATION_FACTOR: 1
+      KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+    ports:
+      - "29092:29092"
+    networks:
+      - messagebroker_network
+
+  kafka-ui:
+    image: provectuslabs/kafka-ui:latest
+    container_name: kafka-ui
+    ports:
+      - "8080:8080"
+    environment:
+      KAFKA_CLUSTERS_0_NAME: local
+      KAFKA_CLUSTERS_0_BOOTSTRAPSERVERS: kafka:9092
+      KAFKA_CLUSTERS_0_ZOOKEEPER: zookeeper:2181
+    depends_on:
+      - kafka
+    networks:
+      - messagebroker_network
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    environment:
+      OLLAMA_CONTEXT_LENGTH: 1024 # Уменьшение длины контекста
+      OLLAMA_KV_CACHE_TYPE: none # Отключение кэширования
+    networks:
+      - messagebroker_network

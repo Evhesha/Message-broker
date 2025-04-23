@@ -8,11 +8,10 @@
 
     <ItemGroup>
       <PackageReference Include="Confluent.Kafka" Version="2.8.0" />
-    </ItemGroup>
-
-    <ItemGroup>
-      <Folder Include="Consumer\" />
-      <Folder Include="Producer\" />
+      <PackageReference Include="Microsoft.Extensions.AI" Version="9.4.0-preview.1.25207.5" />
+      <PackageReference Include="Microsoft.Extensions.AI.Ollama" Version="9.4.0-preview.1.25207.5" />
+      <PackageReference Include="Microsoft.Extensions.Hosting" Version="9.0.3" />
+      <PackageReference Include="Microsoft.Extensions.Options.ConfigurationExtensions" Version="9.0.3" />
     </ItemGroup>
 
 </Project>

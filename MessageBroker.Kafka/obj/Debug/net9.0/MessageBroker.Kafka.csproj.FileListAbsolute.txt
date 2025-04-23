@@ -1,0 +1,13 @@
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\bin\Debug\net9.0\MessageBroker.Kafka.deps.json
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\bin\Debug\net9.0\MessageBroker.Kafka.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\bin\Debug\net9.0\MessageBroker.Kafka.pdb
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.csproj.AssemblyReference.cache
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.AssemblyInfoInputs.cache
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.AssemblyInfo.cs
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.csproj.CoreCompileInputs.cache
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.sourcelink.json
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\refint\MessageBroker.Kafka.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.pdb
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\ref\MessageBroker.Kafka.dll
