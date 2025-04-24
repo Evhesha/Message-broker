@@ -1,18 +1,27 @@
 ﻿using MessageBroker.Kafka.Consumer.Abstractions;
-using MessageBroker.Kafka.Producer.Abstractions;
+using MessageBroker.Kafka.Models;
+using Newtonsoft.Json;
 
 namespace MessageBroker.Kafka;
 
-public class AnswerMessageHandler : IMessageHandler<string>
+public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
 {
-    private readonly IKafkaProducer<string> _kafkaProducer;
-
-    public AnswerMessageHandler(IKafkaProducer<string> kafkaProducer)
+    public async Task HandleAsync(List<OllamaMessage> messages, CancellationToken cancellationToken)
     {
-        _kafkaProducer = kafkaProducer;
-    }
-    public async Task HandleAsync(string answer, CancellationToken cancellationToken)
-    {
-        Console.WriteLine($"Answer: {answer}");
+        try
+        {
+            foreach (var message in messages)
+            {
+                foreach (var content in message.Contents)
+                {
+                    Console.WriteLine($"Text: {content.Text}");
+                }
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error during processing: {ex.Message}");
+        }
     }
 }
+

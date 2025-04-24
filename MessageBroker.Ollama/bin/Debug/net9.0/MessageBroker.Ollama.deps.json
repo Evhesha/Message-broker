@@ -1838,7 +1838,8 @@
           "Microsoft.Extensions.AI": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.AI.Ollama": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.Hosting": "9.0.3",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.3"
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "9.0.3",
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
           "MessageBroker.Kafka.dll": {
