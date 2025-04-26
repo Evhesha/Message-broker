@@ -142,3 +142,32 @@ input[type="password"]:focus {
         opacity: 1;
     }
 }
+
+.google-button {
+    margin-top: 15px;
+    background-color: #4285F4;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.google-button:hover {
+    background-color: #357ae8;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
