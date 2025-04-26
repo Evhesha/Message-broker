@@ -4,25 +4,33 @@ import './LoginModal.css';
 const LoginModal = ({ onClose, isDarkTheme }) => {
     const [isRegistering, setIsRegistering] = useState(false);
     const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
         if (isRegistering) {
             if (password !== confirmPassword) {
-                alert('Пароли не совпадают!');
+                setErrorMessage('Пароли не совпадают!');
                 return;
             }
-            console.log('Регистрация:', username, password);
+            if (!email.includes('@')) {
+                setErrorMessage('Введите корректный email.');
+                return;
+            }
+            console.log('Регистрация:', username, email, password);
+            setErrorMessage('');
         } else {
             console.log('Вход:', username, password);
+            setErrorMessage('');
         }
     };
 
     const handleGoogleLogin = () => {
         console.log('Вход через Google');
-        // Тут будет реальный вход через Google
+        // Здесь будет логика авторизации через Google
     };
 
     return (
@@ -38,6 +46,15 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                         onChange={(e) => setUsername(e.target.value)} 
                         required 
                     />
+                    {isRegistering && (
+                        <input 
+                            type="email" 
+                            placeholder="Email" 
+                            value={email} 
+                            onChange={(e) => setEmail(e.target.value)} 
+                            required 
+                        />
+                    )}
                     <input 
                         type="password" 
                         placeholder="Пароль" 
@@ -54,6 +71,11 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                             required 
                         />
                     )}
+
+                    {errorMessage && (
+                        <div className="error-message">{errorMessage}</div>
+                    )}
+
                     <button type="submit" className="submit-button">
                         {isRegistering ? 'Зарегистрироваться' : 'Войти'}
                     </button>
@@ -65,7 +87,7 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                         alt="Google Icon" 
                         className="google-icon" 
                     />
-                    Войти через Google
+                    {isRegistering ? 'Зарегистрироваться через Google' : 'Войти через Google'}
                 </button>
 
                 <div className="register-text">
