@@ -1,11 +1,15 @@
 ﻿using MessageBroker.Kafka.Consumer.Abstractions;
 using MessageBroker.Kafka.Models;
-using Newtonsoft.Json;
-
-namespace MessageBroker.Kafka;
 
 public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
 {
+    private readonly IMessageSender _messageSender;
+
+    public AnswerMessageHandler(IMessageSender messageSender)
+    {
+        _messageSender = messageSender;
+    }
+
     public async Task HandleAsync(List<OllamaMessage> messages, CancellationToken cancellationToken)
     {
         try
@@ -15,6 +19,7 @@ public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
                 foreach (var content in message.Contents)
                 {
                     Console.WriteLine($"Text: {content.Text}");
+                    await _messageSender.SendMessage(content.Text); // Отправляем только текст
                 }
             }
         }
@@ -24,4 +29,3 @@ public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
         }
     }
 }
-

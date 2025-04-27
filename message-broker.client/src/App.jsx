@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import ChatContainer from './components/ChatContainer/ChatContainer';
 import MessageHistory from './components/MessageHistory/MessageHistory';
 import Sidebar from './components/Sidebar/Sidebar';
+import SignalRConsoleLogger from './components/SignalRConsolerLogger';
 import './App.css';
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
                 <MessageHistory messages={messages} />
                 <ChatContainer messages={messages} setMessages={setMessages} sendMessage={sendMessage} />
             </div>
+            <SignalRConsoleLogger></SignalRConsoleLogger>
         </div>
     );
 };

@@ -3633,6 +3633,7 @@
         "framework": ".NETCoreApp,Version=v9.0",
         "dependencies": {
           "Confluent.Kafka": "2.8.0",
+          "MessageBroker.Shared": "1.0.0",
           "Microsoft.Extensions.AI": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.AI.Ollama": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.Hosting": "9.0.3",
@@ -3666,6 +3667,16 @@
         "frameworkReferences": [
           "Microsoft.AspNetCore.App"
         ]
+      },
+      "MessageBroker.Shared/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v9.0",
+        "compile": {
+          "bin/placeholder/MessageBroker.Shared.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/MessageBroker.Shared.dll": {}
+        }
       }
     }
   },
@@ -9797,6 +9808,11 @@
       "type": "project",
       "path": "../MessageBroker.Server/MessageBroker.Server.csproj",
       "msbuildProject": "../MessageBroker.Server/MessageBroker.Server.csproj"
+    },
+    "MessageBroker.Shared/1.0.0": {
+      "type": "project",
+      "path": "../MessageBroker.Shared/MessageBroker.Shared.csproj",
+      "msbuildProject": "../MessageBroker.Shared/MessageBroker.Shared.csproj"
     }
   },
   "projectFileDependencyGroups": {
