@@ -241,6 +241,10 @@
               "target": "Package",
               "version": "[9.0.0, )"
             },
+            "Microsoft.AspNetCore.SignalR": {
+              "target": "Package",
+              "version": "[1.2.0, )"
+            },
             "MongoDB.Driver": {
               "target": "Package",
               "version": "[3.2.1, )"

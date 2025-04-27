@@ -1,11 +1,8 @@
 using MessageBroker.Kafka;
 using MessageBroker.Kafka.Consumer.Extensions;
-using MessageBroker.Kafka.Models;
 using MessageBroker.Kafka.Producer.Extensions;
 using MessageBroker.Server.Extensions;
-using MessageBroker.Server.Models.Ollama;
 using OllamaMessage = MessageBroker.Kafka.Models.OllamaMessage;
-
 
 var builder = WebApplication.CreateBuilder(args);
 
