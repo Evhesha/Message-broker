@@ -1,0 +1,12 @@
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\bin\Debug\net9.0\MessageBroker.Shared.deps.json
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\bin\Debug\net9.0\MessageBroker.Shared.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\bin\Debug\net9.0\MessageBroker.Shared.pdb
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.AssemblyInfoInputs.cache
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.AssemblyInfo.cs
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.csproj.CoreCompileInputs.cache
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.sourcelink.json
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\refint\MessageBroker.Shared.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\MessageBroker.Shared.pdb
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Shared\obj\Debug\net9.0\ref\MessageBroker.Shared.dll

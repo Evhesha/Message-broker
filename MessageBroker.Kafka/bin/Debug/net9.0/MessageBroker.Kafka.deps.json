@@ -9,6 +9,7 @@
       "MessageBroker.Kafka/1.0.0": {
         "dependencies": {
           "Confluent.Kafka": "2.8.0",
+          "MessageBroker.Shared": "1.0.0",
           "Microsoft.Extensions.AI": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.AI.Ollama": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.Hosting": "9.0.3",
@@ -623,6 +624,14 @@
             "fileVersion": "9.0.425.16305"
           }
         }
+      },
+      "MessageBroker.Shared/1.0.0": {
+        "runtime": {
+          "MessageBroker.Shared.dll": {
+            "assemblyVersion": "1.0.0.0",
+            "fileVersion": "1.0.0.0"
+          }
+        }
       }
     }
   },
@@ -904,6 +913,11 @@
       "sha512": "sha512-4qBn2H6/aXBpE/Pm3wY5yusY/pEvQz99NlWHrTUji0qCmOdbhhjaALcpmbfW2ksxlPM6i6S+QFLkpOQdyfeKYQ==",
       "path": "system.threading.channels/9.0.4",
       "hashPath": "system.threading.channels.9.0.4.nupkg.sha512"
+    },
+    "MessageBroker.Shared/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

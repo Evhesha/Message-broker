@@ -10,7 +10,8 @@ public static class CorsExtensions
             {
                 builder.WithOrigins(configuration["Cors:AllowedOrigins"]?.Split(",") ?? new string[] { })
                     .AllowAnyMethod()
-                    .AllowAnyHeader();
+                    .AllowAnyHeader()
+                    .AllowCredentials();
             });
         });
 

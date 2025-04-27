@@ -112,3 +112,6 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\MessageBroker.Shared.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\MessageBroker.Shared.pdb
