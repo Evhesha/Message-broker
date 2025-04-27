@@ -72,7 +72,8 @@
 }
 
 input[type="text"],
-input[type="password"] {
+input[type="password"],
+input[type="email"] {
     width: 100%;
     padding: 12px;
     margin: 12px 0;
@@ -84,12 +85,14 @@ input[type="password"] {
 }
 
 input[type="text"]:focus,
-input[type="password"]:focus {
+input[type="password"]:focus,
+input[type="email"]:focus {
     outline: none;
     border-color: #4caf50;
-    box-shadow: 0 0 0 3px #105b12(13, 110, 253, 0.2);
-    transform: scale(1.02); /* Легкое увеличение при фокусе */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* поправил синтаксис */
+    transform: scale(1.02); /* Лёгкое увеличение при фокусе */
 }
+
 
 .submit-button {
     background-color: #198754;
@@ -142,3 +145,41 @@ input[type="password"]:focus {
         opacity: 1;
     }
 }
+
+.google-button {
+    margin-top: 15px;
+    background-color: white;
+    color: #198754;
+    border: 2px solid #198754;
+    padding: 10px 15px;
+    border-radius: 12px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 16px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.google-button:hover {
+    background-color: #198754;
+    color: white;
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.google-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.error-message {
+    color: #dc3545;
+    font-size: 14px;
+    margin: 8px 0;
+    text-align: center;
+}
+
