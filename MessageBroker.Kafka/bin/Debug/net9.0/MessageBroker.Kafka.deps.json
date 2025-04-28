@@ -571,14 +571,7 @@
           }
         }
       },
-      "System.Diagnostics.DiagnosticSource/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Diagnostics.DiagnosticSource.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
+      "System.Diagnostics.DiagnosticSource/9.0.4": {},
       "System.Diagnostics.EventLog/9.0.3": {
         "runtime": {
           "lib/net9.0/System.Diagnostics.EventLog.dll": {
@@ -601,30 +594,9 @@
           }
         }
       },
-      "System.Net.Http.Json/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Net.Http.Json.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
-      "System.Text.Json/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Text.Json.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
-      "System.Threading.Channels/9.0.4": {
-        "runtime": {
-          "lib/net9.0/System.Threading.Channels.dll": {
-            "assemblyVersion": "9.0.0.0",
-            "fileVersion": "9.0.425.16305"
-          }
-        }
-      },
+      "System.Net.Http.Json/9.0.4": {},
+      "System.Text.Json/9.0.4": {},
+      "System.Threading.Channels/9.0.4": {},
       "MessageBroker.Shared/1.0.0": {
         "runtime": {
           "MessageBroker.Shared.dll": {
