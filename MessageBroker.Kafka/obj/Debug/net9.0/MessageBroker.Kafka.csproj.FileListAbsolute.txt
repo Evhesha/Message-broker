@@ -11,3 +11,6 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\refint\MessageBroker.Kafka.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageBroker.Kafka.pdb
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\ref\MessageBroker.Kafka.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\bin\Debug\net9.0\MessageBroker.Shared.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\bin\Debug\net9.0\MessageBroker.Shared.pdb
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Kafka\obj\Debug\net9.0\MessageB.D550622A.Up2Date

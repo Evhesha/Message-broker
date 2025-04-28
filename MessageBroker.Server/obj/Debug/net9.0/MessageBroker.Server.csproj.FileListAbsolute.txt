@@ -98,10 +98,6 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Diagnostics.EventLog.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\MessageBroker.Kafka.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\MessageBroker.Kafka.pdb
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\System.Diagnostics.DiagnosticSource.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\System.Net.Http.Json.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\System.Text.Json.dll
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\System.Threading.Channels.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Microsoft.AspNetCore.JsonPatch.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Microsoft.AspNetCore.Mvc.Razor.Extensions.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Microsoft.AspNetCore.Razor.Language.dll
@@ -112,3 +108,6 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Microsoft.Extensions.DependencyModel.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Newtonsoft.Json.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\Newtonsoft.Json.Bson.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\MessageBroker.Shared.dll
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Server\bin\Debug\net9.0\MessageBroker.Shared.pdb
