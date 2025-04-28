@@ -26,9 +26,9 @@ const ChatContainer = ({ messages, setMessages, darkMode }) => {
         setMessages([...messages, userMessage]);
     
         try {
-            const response = await PostQuestion({ question: inputMessage }); // Запрос
-            const botMessage = { text: response.message || "Ответ не получен", type: 'received', timestamp: new Date() };
-            setMessages([...messages, userMessage, botMessage]); 
+            const response = await PostQuestion({ question: inputMessage });
+            console.log(response.message)
+            setMessages([...messages, userMessage]); 
         } catch (error) {
             console.error('Ошибка при отправке:', error);
         }

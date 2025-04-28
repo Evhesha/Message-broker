@@ -1,31 +1,33 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import * as signalR from "@microsoft/signalr";
 
-const SignalRConsoleLogger = () => {
+const SignalRConsoleLogger = ({ onMessageReceived }) => {
     useEffect(() => {
         const connection = new signalR.HubConnectionBuilder()
-            .withUrl("https://localhost:7151/messageHub") // Укажите правильный адрес вашего хаба
+            .withUrl("https://localhost:7151/messageHub")
             .build();
 
-        // Подключаем обработчик входящих сообщений
         connection.on("ReceiveMessage", (message) => {
             console.log("Получено сообщение от SignalR:", message);
+
+            // Передаем сообщение в родительский компонент
+            if (onMessageReceived) {
+                onMessageReceived(message);
+            }
         });
 
-        // Запускаем соединение
         connection.start()
             .then(() => console.log("SignalR подключен!"))
             .catch((err) => console.error("Ошибка подключения SignalR:", err));
 
-        // Очищаем соединение при размонтировании компонента
         return () => {
             connection.stop()
                 .then(() => console.log("SignalR отключен"))
                 .catch((err) => console.error("Ошибка при отключении SignalR:", err));
         };
-    }, []); // Пустой массив зависимостей, чтобы код выполнялся только один раз при загрузке компонента
+    }, [onMessageReceived]); // Добавляем зависимость на функцию обратного вызова
 
-    return null; // Пока компонент ничего не рендерит
+    return null; // Компонент ничего не рендерит
 };
 
 export default SignalRConsoleLogger;

@@ -19,7 +19,7 @@ public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
                 foreach (var content in message.Contents)
                 {
                     Console.WriteLine($"Text: {content.Text}");
-                    await _messageSender.SendMessage(content.Text); // Отправляем только текст
+                    await _messageSender.SendMessage(content.Text);
                 }
             }
         }
