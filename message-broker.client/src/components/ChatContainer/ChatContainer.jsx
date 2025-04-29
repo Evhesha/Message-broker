@@ -1,11 +1,18 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Button, InputGroup, Form } from 'react-bootstrap';
+import { Button, InputGroup, Form, Spinner, Alert } from 'react-bootstrap';
 import { Send, Clock, PersonFill, Robot } from 'react-bootstrap-icons';
 import './ChatContainer.css';
 import { PostQuestion } from '../../Queries/Ollama/PostQuestion';
 
-const ChatContainer = ({ messages, setMessages, darkMode }) => {
+const ChatContainer = ({ 
+    messages, 
+    setMessages, 
+    darkMode, 
+    isWaitingForResponse, 
+    setIsWaitingForResponse 
+}) => {
     const [inputMessage, setInputMessage] = useState('');
+    const [error, setError] = useState(null);
     const messagesEndRef = useRef(null);
 
     const scrollToBottom = () => {
@@ -13,30 +20,29 @@ const ChatContainer = ({ messages, setMessages, darkMode }) => {
     };
 
     const handleKeyPress = (event) => {
-        if (event.key === 'Enter' && !event.shiftKey) {
+        if (event.key === 'Enter' && !event.shiftKey && !isWaitingForResponse) {
             event.preventDefault();
             handleSendMessage();
         }
     };
 
     const handleSendMessage = async () => {
-        if (!inputMessage.trim()) return;
+        if (!inputMessage.trim() || isWaitingForResponse) return;
     
         const userMessage = { text: inputMessage, type: 'sent', timestamp: new Date() };
-        setMessages([...messages, userMessage]);
+        setMessages(prev => [...prev, userMessage]);
+        setInputMessage('');
+        setIsWaitingForResponse(true);
+        setError(null);
     
         try {
-            const response = await PostQuestion({ question: inputMessage });
-            console.log(response.message)
-            setMessages([...messages, userMessage]); 
+            await PostQuestion({ question: inputMessage });
         } catch (error) {
             console.error('Ошибка при отправке:', error);
+            setError('Произошла ошибка при отправке запроса');
+            setIsWaitingForResponse(false);
         }
-    
-        setInputMessage('');
-        scrollToBottom();
     };
-    
 
     useEffect(() => {
         scrollToBottom();
@@ -65,6 +71,29 @@ const ChatContainer = ({ messages, setMessages, darkMode }) => {
                         </div>
                     </div>
                 ))}
+                
+                {isWaitingForResponse && (
+                    <div className="message-container received-container">
+                        <div className="message received">
+                            <div className="message-header">
+                                <Robot className="bot-icon" />
+                            </div>
+                            <div className="message-content">
+                                <div className="message-text typing-indicator">
+                                    <Spinner animation="border" size="sm" role="status" />
+                                    <span className="ms-2">Бот печатает...</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                )}
+                
+                {error && (
+                    <Alert variant="danger" className="mt-2">
+                        {error}
+                    </Alert>
+                )}
+                
                 <div ref={messagesEndRef} />
             </div>
             
@@ -74,17 +103,23 @@ const ChatContainer = ({ messages, setMessages, darkMode }) => {
                         as="textarea"
                         rows={1}
                         value={inputMessage}
-                        placeholder="Введите сообщение..."
+                        placeholder={isWaitingForResponse ? "Подождите, пока бот отвечает..." : "Введите сообщение..."}
                         onChange={(e) => setInputMessage(e.target.value)}
                         onKeyPress={handleKeyPress}
                         className={`message-input ${darkMode ? 'dark' : ''}`}
+                        disabled={isWaitingForResponse}
                     />
                     <Button 
                         variant={darkMode ? "outline-light" : "primary"}
                         className="send-button"
                         onClick={handleSendMessage}
+                        disabled={isWaitingForResponse || !inputMessage.trim()}
                     >
-                        <Send size={20} />
+                        {isWaitingForResponse ? (
+                            <Spinner animation="border" size="sm" />
+                        ) : (
+                            <Send size={20} />
+                        )}
                     </Button>
                 </InputGroup>
             </div>
