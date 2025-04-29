@@ -28,10 +28,10 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
-app.MapHub<MessageHub>("/messageHub");
 app.UseHttpsRedirection();
-app.UseAuthorization();
-app.MapControllers();
 app.UseCors("AllowSpecificOrigin");
+app.UseAuthorization();
+app.MapHub<MessageHub>("/messageHub");
+app.MapControllers();
 
 app.Run();

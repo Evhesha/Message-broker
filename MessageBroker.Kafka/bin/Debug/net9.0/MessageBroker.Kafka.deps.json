@@ -8,7 +8,7 @@
     ".NETCoreApp,Version=v9.0": {
       "MessageBroker.Kafka/1.0.0": {
         "dependencies": {
-          "Confluent.Kafka": "2.8.0",
+          "Confluent.Kafka": "2.10.0",
           "MessageBroker.Shared": "1.0.0",
           "Microsoft.Extensions.AI": "9.4.0-preview.1.25207.5",
           "Microsoft.Extensions.AI.Ollama": "9.4.0-preview.1.25207.5",
@@ -20,18 +20,18 @@
           "MessageBroker.Kafka.dll": {}
         }
       },
-      "Confluent.Kafka/2.8.0": {
+      "Confluent.Kafka/2.10.0": {
         "dependencies": {
-          "librdkafka.redist": "2.8.0"
+          "librdkafka.redist": "2.10.0"
         },
         "runtime": {
           "lib/net8.0/Confluent.Kafka.dll": {
-            "assemblyVersion": "2.8.0.0",
-            "fileVersion": "2.8.0.0"
+            "assemblyVersion": "2.10.0.0",
+            "fileVersion": "2.10.0.0"
           }
         }
       },
-      "librdkafka.redist/2.8.0": {
+      "librdkafka.redist/2.10.0": {
         "runtimeTargets": {
           "runtimes/linux-arm64/native/librdkafka.so": {
             "rid": "linux-arm64",
@@ -613,19 +613,19 @@
       "serviceable": false,
       "sha512": ""
     },
-    "Confluent.Kafka/2.8.0": {
+    "Confluent.Kafka/2.10.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i5Qb5BPthGXmLRSZWXVLPVNfo9Mxt+UieC+E/ZTFmlGIuPPd57g7Sxp8QP7fYp7qEBXs561jvWDLGaCZqV9ycg==",
-      "path": "confluent.kafka/2.8.0",
-      "hashPath": "confluent.kafka.2.8.0.nupkg.sha512"
+      "sha512": "sha512-beGF9x9Yw83NDTs0oyNdRHSR27HjF2NpwwCZZ45hEk1zE+yDW8JXuyzitfdYftLACCbuaBJCEh+ZW7Qxg9cdnA==",
+      "path": "confluent.kafka/2.10.0",
+      "hashPath": "confluent.kafka.2.10.0.nupkg.sha512"
     },
-    "librdkafka.redist/2.8.0": {
+    "librdkafka.redist/2.10.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Gg8nPjn9+Sp6X+O1g9duKarCteFQjpkCVJS06ihVQf4PVnR/jPXkN3vwvWe5zP4L47xiEfU+6wIp4pbIvaQ6rQ==",
-      "path": "librdkafka.redist/2.8.0",
-      "hashPath": "librdkafka.redist.2.8.0.nupkg.sha512"
+      "sha512": "sha512-QOvg/8WapA3c5EwPojCjnLEdxJNjxJ5s2GO8VxrDV9BTpnXHHGJ14MPwcGKiQeiRsBvPoeoTKMOh5KYu/Wm3jw==",
+      "path": "librdkafka.redist/2.10.0",
+      "hashPath": "librdkafka.redist.2.10.0.nupkg.sha512"
     },
     "Microsoft.Extensions.AI/9.4.0-preview.1.25207.5": {
       "type": "package",
