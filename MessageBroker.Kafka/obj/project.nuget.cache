@@ -1,11 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "eFe0hD+hqdE=",
+  "dgSpecHash": "Nxyjqyd++1A=",
   "success": true,
   "projectFilePath": "C:\\Users\\EvGenii\\RiderProjects\\MessageBroker\\MessageBroker.Kafka\\MessageBroker.Kafka.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\EvGenii\\.nuget\\packages\\confluent.kafka\\2.8.0\\confluent.kafka.2.8.0.nupkg.sha512",
-    "C:\\Users\\EvGenii\\.nuget\\packages\\librdkafka.redist\\2.8.0\\librdkafka.redist.2.8.0.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\confluent.kafka\\2.10.0\\confluent.kafka.2.10.0.nupkg.sha512",
+    "C:\\Users\\EvGenii\\.nuget\\packages\\librdkafka.redist\\2.10.0\\librdkafka.redist.2.10.0.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.ai\\9.4.0-preview.1.25207.5\\microsoft.extensions.ai.9.4.0-preview.1.25207.5.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.ai.abstractions\\9.4.0-preview.1.25207.5\\microsoft.extensions.ai.abstractions.9.4.0-preview.1.25207.5.nupkg.sha512",
     "C:\\Users\\EvGenii\\.nuget\\packages\\microsoft.extensions.ai.ollama\\9.4.0-preview.1.25207.5\\microsoft.extensions.ai.ollama.9.4.0-preview.1.25207.5.nupkg.sha512",
