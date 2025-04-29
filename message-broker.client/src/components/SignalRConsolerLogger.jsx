@@ -10,7 +10,6 @@ const SignalRConsoleLogger = ({ onMessageReceived }) => {
         connection.on("ReceiveMessage", (message) => {
             console.log("Получено сообщение от SignalR:", message);
 
-            // Передаем сообщение в родительский компонент
             if (onMessageReceived) {
                 onMessageReceived(message);
             }
@@ -25,9 +24,9 @@ const SignalRConsoleLogger = ({ onMessageReceived }) => {
                 .then(() => console.log("SignalR отключен"))
                 .catch((err) => console.error("Ошибка при отключении SignalR:", err));
         };
-    }, [onMessageReceived]); // Добавляем зависимость на функцию обратного вызова
+    }, [onMessageReceived]);
 
-    return null; // Компонент ничего не рендерит
+    return null;
 };
 
 export default SignalRConsoleLogger;
