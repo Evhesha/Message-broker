@@ -21,11 +21,6 @@ public class MessagesRepository
     //     return await _dbContext.Messages.Find(m => m.ChatId).ToListAsync(cancellationToken);
     // }
 
-    public async Task<Guid> Add(Message message, CancellationToken cancellationToken)
-    {
-        await _context.Messages.InsertOneAsync(message, cancellationToken);
-        
-        return message.Id;
-    }
+
     
 }
