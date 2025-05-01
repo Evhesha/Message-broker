@@ -38,8 +38,8 @@ const ChatContainer = ({
         try {
             await PostQuestion({ question: inputMessage });
         } catch (error) {
-            console.error('Ошибка при отправке:', error);
-            setError('Произошла ошибка при отправке запроса');
+            console.error('Error sending:', error);
+            setError('There was an error sending your request');
             setIsWaitingForResponse(false);
         }
     };
@@ -81,7 +81,7 @@ const ChatContainer = ({
                             <div className="message-content">
                                 <div className="message-text typing-indicator">
                                     <Spinner animation="border" size="sm" role="status" />
-                                    <span className="ms-2">Бот печатает...</span>
+                                    <span className="ms-2">The bot is typing...</span>
                                 </div>
                             </div>
                         </div>
@@ -103,7 +103,7 @@ const ChatContainer = ({
                         as="textarea"
                         rows={1}
                         value={inputMessage}
-                        placeholder={isWaitingForResponse ? "Подождите, пока бот отвечает..." : "Введите сообщение..."}
+                        placeholder={isWaitingForResponse ? "Please wait for the bot to respond..." : "Enter message..."}
                         onChange={(e) => setInputMessage(e.target.value)}
                         onKeyPress={handleKeyPress}
                         className={`message-input ${darkMode ? 'dark' : ''}`}
