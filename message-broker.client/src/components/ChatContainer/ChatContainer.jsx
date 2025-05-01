@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Button, InputGroup, Form, Spinner, Alert } from 'react-bootstrap';
+import { Button, Form, Spinner, Alert } from 'react-bootstrap';
 import { Send, Clock, PersonFill, Robot } from 'react-bootstrap-icons';
-import './ChatContainer.css';
+import './ChatContainer.css'; // Убедитесь, что путь правильный
 import { PostQuestion } from '../../Queries/Ollama/PostQuestion';
 
 const ChatContainer = ({ 
@@ -38,8 +38,8 @@ const ChatContainer = ({
         try {
             await PostQuestion({ question: inputMessage });
         } catch (error) {
-            console.error('Ошибка при отправке:', error);
-            setError('Произошла ошибка при отправке запроса');
+            console.error('Error sending:', error);
+            setError('There was an error sending your request');
             setIsWaitingForResponse(false);
         }
     };
@@ -81,7 +81,7 @@ const ChatContainer = ({
                             <div className="message-content">
                                 <div className="message-text typing-indicator">
                                     <Spinner animation="border" size="sm" role="status" />
-                                    <span className="ms-2">Бот печатает...</span>
+                                    <span className="ms-2">The bot is typing...</span>
                                 </div>
                             </div>
                         </div>
@@ -98,30 +98,28 @@ const ChatContainer = ({
             </div>
             
             <div className="input-container">
-                <InputGroup>
-                    <Form.Control
-                        as="textarea"
-                        rows={1}
-                        value={inputMessage}
-                        placeholder={isWaitingForResponse ? "Подождите, пока бот отвечает..." : "Введите сообщение..."}
-                        onChange={(e) => setInputMessage(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                        className={`message-input ${darkMode ? 'dark' : ''}`}
-                        disabled={isWaitingForResponse}
-                    />
-                    <Button 
-                        variant={darkMode ? "outline-light" : "primary"}
-                        className="send-button"
-                        onClick={handleSendMessage}
-                        disabled={isWaitingForResponse || !inputMessage.trim()}
-                    >
-                        {isWaitingForResponse ? (
-                            <Spinner animation="border" size="sm" />
-                        ) : (
-                            <Send size={20} />
-                        )}
-                    </Button>
-                </InputGroup>
+                <Form.Control
+                    as="textarea"
+                    rows={1}
+                    value={inputMessage}
+                    placeholder={isWaitingForResponse ? "Please wait for the bot to respond..." : "Enter message..."}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className={`message-input ${darkMode ? 'dark' : ''}`}
+                    disabled={isWaitingForResponse}
+                />
+                <Button 
+                    variant="none"
+                    className="send-button"
+                    onClick={handleSendMessage}
+                    disabled={isWaitingForResponse || !inputMessage.trim()}
+                >
+                    {isWaitingForResponse ? (
+                        <Spinner animation="border" size="sm" />
+                    ) : (
+                        <Send size={20} />
+                    )}
+                </Button>
             </div>
         </div>
     );

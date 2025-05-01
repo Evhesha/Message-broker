@@ -13,23 +13,23 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
         e.preventDefault();
         if (isRegistering) {
             if (password !== confirmPassword) {
-                setErrorMessage('Пароли не совпадают!');
+                setErrorMessage('Passwords do not match!');
                 return;
             }
             if (!email.includes('@')) {
-                setErrorMessage('Введите корректный email.');
+                setErrorMessage('Please enter a valid email.');
                 return;
             }
-            console.log('Регистрация:', username, email, password);
+            console.log('Registration:', username, email, password);
             setErrorMessage('');
         } else {
-            console.log('Вход:', username, password);
+            console.log('Login:', username, password);
             setErrorMessage('');
         }
     };
 
     const handleGoogleLogin = () => {
-        console.log('Вход через Google');
+        console.log('Login with Google');
         // Здесь будет логика авторизации через Google
     };
 
@@ -37,11 +37,11 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
         <div className={`modal-overlay ${isDarkTheme ? 'dark' : ''}`}>
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>×</button>
-                <h2>{isRegistering ? 'Регистрация' : 'Вход'}</h2>
+                <h2>{isRegistering ? 'Registration' : 'Login'}</h2>
                 <form onSubmit={handleSubmit}>
                     <input 
                         type="text" 
-                        placeholder="Имя пользователя" 
+                        placeholder="Username" 
                         value={username} 
                         onChange={(e) => setUsername(e.target.value)} 
                         required 
@@ -57,7 +57,7 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                     )}
                     <input 
                         type="password" 
-                        placeholder="Пароль" 
+                        placeholder="Password" 
                         value={password} 
                         onChange={(e) => setPassword(e.target.value)} 
                         required 
@@ -65,7 +65,7 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                     {isRegistering && (
                         <input 
                             type="password" 
-                            placeholder="Повторите пароль" 
+                            placeholder="Repeat password" 
                             value={confirmPassword} 
                             onChange={(e) => setConfirmPassword(e.target.value)} 
                             required 
@@ -77,7 +77,7 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                     )}
 
                     <button type="submit" className="submit-button">
-                        {isRegistering ? 'Зарегистрироваться' : 'Войти'}
+                        {isRegistering ? 'Register' : 'Login'}
                     </button>
                 </form>
 
@@ -87,14 +87,14 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
                         alt="Google Icon" 
                         className="google-icon" 
                     />
-                    {isRegistering ? 'Зарегистрироваться через Google' : 'Войти через Google'}
+                    {isRegistering ? 'Sign up with Google' : 'Login with Google'}
                 </button>
 
                 <div className="register-text">
                     {isRegistering ? (
-                        <span>Уже есть аккаунт? <a href="#" onClick={() => setIsRegistering(false)}>Войти</a></span>
+                        <span> Already have an account? <a href="#" onClick={() => setIsRegistering(false)}>Login</a></span>
                     ) : (
-                        <span>Нет аккаунта? <a href="#" onClick={() => setIsRegistering(true)}>Зарегистрироваться</a></span>
+                        <span> Don't have an account? <a href="#" onClick={() => setIsRegistering(true)}>Register</a></span>
                     )}
                 </div>
             </div>
