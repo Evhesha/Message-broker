@@ -28,16 +28,16 @@ const Sidebar = ({ toggleTheme, startNewChat, chatHistory, isDarkTheme, toggleLa
                 </button>
 
                 <button className="login-button" onClick={toggleModal}>
-                    <span className="login-text">Вход</span>
+                    <span className="login-text">Login</span>
                     <BoxArrowInRight size={18} className="login-icon" />
                 </button>
             </div>
 
             <button className="new-chat" onClick={startNewChat}>
-                Новый чат
+                New Chat
             </button>
 
-            <h3>История сообщений</h3>
+            <h3>Message history</h3>
             <ul className="chat-list">
                 {chatHistory.map((chat, index) => (
                     <li key={index} className="chat-title">{chat.title}</li>

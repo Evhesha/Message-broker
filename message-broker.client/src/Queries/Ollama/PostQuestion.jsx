@@ -7,12 +7,12 @@ export const PostQuestion = async (data) => {
         });
 
         if (!response.ok) {
-            throw new Error(`Ошибка HTTP: ${response.status}`);
+            throw new Error(`Error HTTP: ${response.status}`);
         }
 
         return await response.json();
     } catch (error) {
-        console.error('Ошибка:', error);
+        console.error('Error:', error);
         throw error;
     }
 };

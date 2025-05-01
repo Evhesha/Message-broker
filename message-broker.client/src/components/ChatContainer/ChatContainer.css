@@ -5,6 +5,9 @@
     height: 100%;
     background-color: #f5f5f5;
     transition: background-color 0.3s ease-in-out;
+    border-radius: 20px; /* Скругленные углы контейнера */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
 .chat-container.dark {
@@ -25,8 +28,10 @@
 .message-container {
     display: flex;
     animation-duration: 0.3s;
+    animation-name: fadeIn;
 }
 
+/* Выравнивание сообщений */
 .sent-container {
     justify-content: flex-end;
 }
@@ -40,23 +45,24 @@
     display: flex;
     max-width: 70%;
     border-radius: 18px;
-    padding: 12px 15px;
+    padding: 15px 20px;
     position: relative;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     word-wrap: break-word;
-    line-height: 1.4;
+    line-height: 1.5;
+    transition: transform 0.2s ease;
 }
 
 .message.sent {
     background: linear-gradient(135deg, #00b09b, #96c93d);
     color: white;
-    border-bottom-right-radius: 5px;
+    border-bottom-right-radius: 8px;
 }
 
 .message.received {
     background: white;
     color: #333;
-    border-bottom-left-radius: 5px;
+    border-bottom-left-radius: 8px;
 }
 
 .dark .message.received {
@@ -106,9 +112,12 @@
 
 /* Поле ввода */
 .input-container {
-    padding: 15px;
-    background-color: white;
-    border-top: 1px solid #e0e0e0;
+    background-color: #fff;
+    border-top: 1px solid #ddd;
+    padding: 12px;
+    display: flex; /* Flexbox для выравнивания */
+    justify-content: space-between; /* Между полем ввода и кнопкой */
+    align-items: center;
 }
 
 .dark .input-container {
@@ -116,59 +125,76 @@
     border-top: 1px solid #444;
 }
 
+/* Поле ввода с гладкими углами и легкой тенью */
 .message-input {
-    border-radius: 20px !important;
+    border: none;
     resize: none;
-    padding: 12px 15px !important;
-    border: 1px solid #ddd !important;
-    box-shadow: none !important;
-    transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    background-color: transparent;
+    color: inherit;
+    font-size: 16px;
+    padding: 12px 20px;
+    min-height: 50px;
+    max-height: 60px;
+    width: 80%;
+    border-radius: 40px; /* Более округленные углы */
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    transition: background-color 0.3s ease;
 }
+.message-input.form-control {
+    background-color: transparent !important;
+    color: inherit !important;
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 40px !important;
+    font-size: 16px;
+    padding: 12px 20px;
+}
+
 
 .message-input:focus {
-    box-shadow: 0 0 0 0.25rem rgba(110, 142, 251, 0.25) !important;
-    border-color: #6e8efb !important;
-}
-
-.message-input:disabled {
-    background-color: #e0e0e0 !important;
-    color: #8a8a8a !important;
-    cursor: not-allowed;
+    outline: none;
+    background-color: #f2f2f2;
 }
 
 .dark .message-input {
-    background-color: #3a3a3a !important;
-    color: white !important;
-    border-color: #555 !important;
-}
-
-.dark .message-input:disabled {
-    background-color: #555 !important;
-    color: #777 !important;
+    color: #f0f0f0;
+    background-color: #3a3a3a;
 }
 
 /* Кнопка отправки */
 .send-button {
+    background: linear-gradient(135deg, #00b09b, #96c93d) !important;
+    color: white !important;
+    border: none !important;
     border-radius: 50% !important;
-    width: 45px;
-    height: 45px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-left: 10px;
-    transition: opacity 0.3s ease;
+    width: 56px !important;
+    height: 56px !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    transition: background-color 0.3s ease !important;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2) !important;
+    cursor: pointer !important;
+}
+
+
+.send-button:hover {
+    background-color: #019184; /* Чуть темнее при наведении */
 }
 
 .send-button:disabled {
-    opacity: 0.5;
+    background-color: #a5dad4;
     cursor: not-allowed;
 }
 
-/* Анимации */
-.animate__fadeIn {
-    animation-name: fadeIn;
-    animation-duration: 0.3s;
+.dark .send-button {
+    background-color: #00b09b;
 }
+
+.dark .send-button:hover {
+    background-color: #019184;
+}
+
 
 @keyframes fadeIn {
     from {
