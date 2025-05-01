@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { Button, InputGroup, Form, Spinner, Alert } from 'react-bootstrap';
+import { Button, Form, Spinner, Alert } from 'react-bootstrap';
 import { Send, Clock, PersonFill, Robot } from 'react-bootstrap-icons';
-import './ChatContainer.css';
+import './ChatContainer.css'; // Убедитесь, что путь правильный
 import { PostQuestion } from '../../Queries/Ollama/PostQuestion';
 
 const ChatContainer = ({ 
@@ -98,30 +98,28 @@ const ChatContainer = ({
             </div>
             
             <div className="input-container">
-                <InputGroup>
-                    <Form.Control
-                        as="textarea"
-                        rows={1}
-                        value={inputMessage}
-                        placeholder={isWaitingForResponse ? "Please wait for the bot to respond..." : "Enter message..."}
-                        onChange={(e) => setInputMessage(e.target.value)}
-                        onKeyPress={handleKeyPress}
-                        className={`message-input ${darkMode ? 'dark' : ''}`}
-                        disabled={isWaitingForResponse}
-                    />
-                    <Button 
-                        variant={darkMode ? "outline-light" : "primary"}
-                        className="send-button"
-                        onClick={handleSendMessage}
-                        disabled={isWaitingForResponse || !inputMessage.trim()}
-                    >
-                        {isWaitingForResponse ? (
-                            <Spinner animation="border" size="sm" />
-                        ) : (
-                            <Send size={20} />
-                        )}
-                    </Button>
-                </InputGroup>
+                <Form.Control
+                    as="textarea"
+                    rows={1}
+                    value={inputMessage}
+                    placeholder={isWaitingForResponse ? "Please wait for the bot to respond..." : "Enter message..."}
+                    onChange={(e) => setInputMessage(e.target.value)}
+                    onKeyPress={handleKeyPress}
+                    className={`message-input ${darkMode ? 'dark' : ''}`}
+                    disabled={isWaitingForResponse}
+                />
+                <Button 
+                    variant="none"
+                    className="send-button"
+                    onClick={handleSendMessage}
+                    disabled={isWaitingForResponse || !inputMessage.trim()}
+                >
+                    {isWaitingForResponse ? (
+                        <Spinner animation="border" size="sm" />
+                    ) : (
+                        <Send size={20} />
+                    )}
+                </Button>
             </div>
         </div>
     );
