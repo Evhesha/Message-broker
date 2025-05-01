@@ -16,7 +16,7 @@ const App = () => {
 
     const startNewChat = () => {
         setMessages([]);
-        setChatHistory((prevHistory) => [...prevHistory, { title: `Чат ${chatHistory.length + 1}`, messages: [] }]);
+        setChatHistory((prevHistory) => [...prevHistory, { title: `Chat ${chatHistory.length + 1}`, messages: [] }]);
     };
 
     const handleSignalRMessage = (signalRMessage) => {

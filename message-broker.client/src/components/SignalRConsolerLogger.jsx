@@ -8,7 +8,7 @@ const SignalRConsoleLogger = ({ onMessageReceived }) => {
             .build();
 
         connection.on("ReceiveMessage", (message) => {
-            console.log("Получено сообщение от SignalR:", message);
+            console.log("Received message from SignalR:", message);
 
             if (onMessageReceived) {
                 onMessageReceived(message);
@@ -16,13 +16,13 @@ const SignalRConsoleLogger = ({ onMessageReceived }) => {
         });
 
         connection.start()
-            .then(() => console.log("SignalR подключен!"))
-            .catch((err) => console.error("Ошибка подключения SignalR:", err));
+            .then(() => console.log("SignalR is connected!"))
+            .catch((err) => console.error("SignalR connection error:", err));
 
         return () => {
             connection.stop()
-                .then(() => console.log("SignalR отключен"))
-                .catch((err) => console.error("Ошибка при отключении SignalR:", err));
+                .then(() => console.log("SignalR is disabled"))
+                .catch((err) => console.error("Error when disabling SignalR:", err));
         };
     }, [onMessageReceived]);
 
