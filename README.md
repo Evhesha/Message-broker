@@ -1,6 +1,7 @@
 Architecture
-<img src="https://github.com/user-attachments/assets/ecfd8c0a-0396-43c0-91d0-27adc347bf28" width="400">
-
+<p></p>
+<img src="https://github.com/user-attachments/assets/ecfd8c0a-0396-43c0-91d0-27adc347bf28" width="1000">
+<p></p>
 The application architecture is organized around the interaction of several key components:
 1. Client (User)
 • Sends a question to the server.
