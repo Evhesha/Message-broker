@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MessageBroker.Ollama")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+36c2d4c84f234e6baf44a7095210191c52f365b7")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4cfc01b8373d66a77b80f43fe18c7e1760b90ca1")]
 [assembly: System.Reflection.AssemblyProductAttribute("MessageBroker.Ollama")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MessageBroker.Ollama")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

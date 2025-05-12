@@ -5,22 +5,27 @@ namespace MessageBroker.Server.MongoDataAccess;
 
 public class MessagesRepository
 {
-    private readonly MongoDbContext _context;
-    public MessagesRepository(MongoDbContext context)
+    private readonly IMongoCollection<Chat> _chatCollection;
+
+    public MessagesRepository(IMongoClient mongoClient)
     {
-        _context = context;
+        var database = mongoClient.GetDatabase("ChatDatabase");
+        _chatCollection = database.GetCollection<Chat>("Chats");
     }
 
-    public async Task<List<Message>> GetMessagesAsync(CancellationToken cancellationToken)
+    // Получить сообщения конкретного чата
+    public async Task<List<Message>> GetMessagesByChatIdAsync(string chatId)
     {
-        return await _context.Messages.Find(_ => true).ToListAsync(cancellationToken);
+        var filter = Builders<Chat>.Filter.Eq("_id", chatId);
+        var chat = await _chatCollection.Find(filter).FirstOrDefaultAsync();
+        return chat?.Messages ?? new List<Message>();
     }
 
-    // public async Task<List<Message>> GetMessagesByChatIdAsync(Guid chatId, CancellationToken cancellationToken)
-    // {
-    //     return await _dbContext.Messages.Find(m => m.ChatId).ToListAsync(cancellationToken);
-    // }
-
-
-    
+    // Добавить сообщение в чат
+    public async Task AddMessageToChatAsync(string chatId, Message message)
+    {
+        var filter = Builders<Chat>.Filter.Eq("_id", chatId);
+        var update = Builders<Chat>.Update.Push("messages", message);
+        await _chatCollection.UpdateOneAsync(filter, update);
+    }
 }
