@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBroker.Ollama", "Mes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBroker.Shared", "MessageBroker.Shared\MessageBroker.Shared.csproj", "{2EAB03F4-65A7-49FD-87DB-C3DBB0728C02}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessageBroker.AuthService", "MessageBroker.AuthService\MessageBroker.AuthService.csproj", "{D46D2C31-339F-4AAA-A64D-742725E5F44B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,6 +37,10 @@ Global
 		{2EAB03F4-65A7-49FD-87DB-C3DBB0728C02}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EAB03F4-65A7-49FD-87DB-C3DBB0728C02}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EAB03F4-65A7-49FD-87DB-C3DBB0728C02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D46D2C31-339F-4AAA-A64D-742725E5F44B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D46D2C31-339F-4AAA-A64D-742725E5F44B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D46D2C31-339F-4AAA-A64D-742725E5F44B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D46D2C31-339F-4AAA-A64D-742725E5F44B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 	EndGlobalSection
