@@ -21,7 +21,7 @@
     </ItemGroup>
 
     <ItemGroup>
-      <Folder Include="DataAccess\Repositories\" />
+      <Folder Include="Abstractions\" />
     </ItemGroup>
 
 </Project>
