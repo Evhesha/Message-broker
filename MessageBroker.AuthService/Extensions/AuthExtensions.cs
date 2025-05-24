@@ -1,6 +1,6 @@
 ﻿namespace MessageBroker.AuthService.Extensions;
 
-public class AuthExtensions
+public static class AuthExtensions
 {
     
 }
