@@ -102,7 +102,7 @@ services:
     ports:
       - "11434:11434"
     environment:
-      OLLAMA_CONTEXT_LENGTH: 1024 # Уменьшение длины контекста
-      OLLAMA_KV_CACHE_TYPE: none # Отключение кэширования
+      OLLAMA_CONTEXT_LENGTH: 1024
+      OLLAMA_KV_CACHE_TYPE: none 
     networks:
       - messagebroker_network

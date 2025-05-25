@@ -1,21 +1,21 @@
-﻿using MessageBroker.AuthService.Entities;
+﻿using MessageBroker.AuthService.Abstractions;
+using MessageBroker.AuthService.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace MessageBroker.AuthService.DataAccess.Repositories;
 
-public class UsersRepository
+public class UsersRepository : IUsersRepository
 {
-    ApplicationDbContext _context;
+    private readonly ApplicationDbContext _context;
     
     public UsersRepository(ApplicationDbContext context)
     {
         _context = context;
     }
 
-    public async Task<List<UserEntity?>> GetUsers()
+    public async Task<List<UserEntity>> GetUsers()
     {
-        return await _context.Users
-            .ToListAsync();
+        return await _context.Users.ToListAsync();
     }
 
     public async Task<UserEntity?> GetUserByEmail(string email)
@@ -23,19 +23,38 @@ public class UsersRepository
         return await _context.Users.
             FirstOrDefaultAsync(u => u.Email == email);
     }
-    
-    
 
-    public async Task<UserEntity?> DeleteUser(Guid id)
+    public async Task<UserEntity?> CreateUser(UserEntity user)
+    {
+        if (user == null) return null;
+
+        await _context.Users.AddAsync(user);
+        await _context.SaveChangesAsync();
+    
+        return user;
+    }
+    
+    public async Task<Guid?> UpdateUser(Guid id, string name)
     {
         var user = await _context.Users.FindAsync(id);
 
-        if (user != null)
-        {
-            _context.Remove(user);
-            await _context.SaveChangesAsync();
-        }
+        if (user == null) return null;
         
-        return user;
+        user.Name = name;
+        await _context.SaveChangesAsync();
+
+        return id;
+    }
+
+    public async Task<bool> DeleteUser(Guid id)
+    {
+        var user = await _context.Users.FindAsync(id);
+
+        if (user == null) return false;
+        
+        _context.Remove(user);
+        await _context.SaveChangesAsync();
+        
+        return true;
     }
 }
