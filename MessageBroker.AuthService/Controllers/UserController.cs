@@ -1,4 +1,4 @@
-﻿using MessageBroker.AuthService.DataAccess.Repositories;
+﻿using MessageBroker.AuthService.Abstractions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace MessageBroker.AuthService.Controllers;
@@ -7,5 +7,12 @@ namespace MessageBroker.AuthService.Controllers;
 [Route("[controller]")]
 public class UserController : ControllerBase
 {
+    private readonly IUsersRepository _usersRepository;
 
+    public UserController(IUsersRepository usersRepository)
+    {
+        _usersRepository = usersRepository;
+    }
+    
+    
 }
