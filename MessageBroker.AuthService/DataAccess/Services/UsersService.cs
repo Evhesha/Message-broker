@@ -1,4 +1,5 @@
 ﻿using MessageBroker.AuthService.Abstractions;
+using MessageBroker.AuthService.DTOs;
 using MessageBroker.AuthService.Entities;
 
 namespace MessageBroker.AuthService.DataAccess.Services;
@@ -22,7 +23,7 @@ public class UsersService : IUsersService
         return await _usersRepository.GetUserByEmail(email);
     }
 
-    public async Task<UserEntity?> CreateUser(UserEntity user)
+    public async Task<UserDTO?> CreateUser(UserEntity user)
     {
         return await _usersRepository.CreateUser(user);
     }

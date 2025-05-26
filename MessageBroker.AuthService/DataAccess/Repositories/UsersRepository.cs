@@ -1,4 +1,5 @@
 ﻿using MessageBroker.AuthService.Abstractions;
+using MessageBroker.AuthService.DTOs;
 using MessageBroker.AuthService.Entities;
 using Microsoft.EntityFrameworkCore;
 
@@ -24,14 +25,19 @@ public class UsersRepository : IUsersRepository
             FirstOrDefaultAsync(u => u.Email == email);
     }
 
-    public async Task<UserEntity?> CreateUser(UserEntity user)
+    public async Task<UserDTO?> CreateUser(UserEntity user)
     {
         if (user == null) return null;
 
         await _context.Users.AddAsync(user);
         await _context.SaveChangesAsync();
     
-        return user;
+        return new UserDTO
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+        };
     }
     
     public async Task<Guid?> UpdateUser(Guid id, string name)
