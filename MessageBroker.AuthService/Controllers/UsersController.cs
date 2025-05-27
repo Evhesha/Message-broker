@@ -16,11 +16,27 @@ public class UsersController : ControllerBase
         _usersRepository = usersRepository;
     }
 
-    // public async ActionResult<List<UserEntity>> GetUsers()
-    // {
-    //     return null;
-    // }
+    [HttpGet]
+    public async Task<ActionResult<List<UserEntity>>> GetUsers()
+    {   
+        return await _usersRepository.GetUsers();
+    }
 
+    [HttpGet("{email}")]
+    public async Task<ActionResult<UserDTO>> GetUserByEmail(string email)
+    {
+        var user =  await _usersRepository.GetUserByEmail(email);
+
+        if (user == null) return NotFound();
+        
+        return new UserDTO
+        {
+            Id = user.Id,
+            Name = user.Name,
+            Email = user.Email,
+        };
+    }
+    
     [HttpPost]
     public async Task<ActionResult<UserDTO>> CreateUser(UserEntity user)
     {
@@ -45,5 +61,24 @@ public class UsersController : ControllerBase
             Name = userEnity.Name,
             Email = userEnity.Email
         };
+    }
+    
+    [HttpPut("{id}")]
+    public async Task<ActionResult> UpdateUser(Guid id, [FromBody] UserDTO user)
+    {
+        if (string.IsNullOrWhiteSpace(user.Name)) 
+            return BadRequest("Name can't be empty");
+        
+        var resutl =  await _usersRepository.UpdateUser(id, user.Name);
+        
+        if (resutl == null) return NotFound();
+        
+        return new OkResult();
+    }
+
+    [HttpDelete("{id}")]
+    public async Task<ActionResult<bool>> DeleteUser(Guid id)
+    {
+        return await _usersRepository.DeleteUser(id);
     }
 }
