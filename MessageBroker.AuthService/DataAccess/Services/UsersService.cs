@@ -23,7 +23,7 @@ public class UsersService : IUsersService
         return await _usersRepository.GetUserByEmail(email);
     }
 
-    public async Task<UserDTO?> CreateUser(UserEntity user)
+    public async Task<UserDto?> CreateUser(UserEntity user)
     {
         return await _usersRepository.CreateUser(user);
     }
