@@ -7,7 +7,7 @@ public interface IUsersService
 {
     Task<List<UserEntity>> GetUsers();
     Task<UserEntity?> GetUserByEmail(string email);
-    Task<UserDTO?> CreateUser(UserEntity user);
+    Task<UserDto?> CreateUser(UserEntity user);
     Task<Guid?> UpdateUser(Guid id, string name);
     Task<bool> DeleteUser(Guid id);
 }

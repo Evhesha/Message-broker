@@ -23,13 +23,13 @@ public class UsersController : ControllerBase
     }
 
     [HttpGet("{email}")]
-    public async Task<ActionResult<UserDTO>> GetUserByEmail(string email)
+    public async Task<ActionResult<UserDto>> GetUserByEmail(string email)
     {
         var user =  await _usersRepository.GetUserByEmail(email);
 
         if (user == null) return NotFound();
         
-        return new UserDTO
+        return new UserDto
         {
             Id = user.Id,
             Name = user.Name,
@@ -38,7 +38,7 @@ public class UsersController : ControllerBase
     }
     
     [HttpPost]
-    public async Task<ActionResult<UserDTO>> CreateUser(UserEntity user)
+    public async Task<ActionResult<UserDto>> CreateUser(UserEntity user)
     {
         var userEnity = new UserEntity
         {
@@ -55,7 +55,7 @@ public class UsersController : ControllerBase
 
         await _usersRepository.CreateUser(userEnity);
         
-        return new UserDTO
+        return new UserDto
         {
             Id = userEnity.Id,
             Name = userEnity.Name,
@@ -64,7 +64,7 @@ public class UsersController : ControllerBase
     }
     
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateUser(Guid id, [FromBody] UserDTO user)
+    public async Task<ActionResult> UpdateUser(Guid id, [FromBody] UserDto user)
     {
         if (string.IsNullOrWhiteSpace(user.Name)) 
             return BadRequest("Name can't be empty");
