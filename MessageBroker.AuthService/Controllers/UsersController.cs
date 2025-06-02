@@ -9,23 +9,23 @@ namespace MessageBroker.AuthService.Controllers;
 [Route("[controller]")]
 public class UsersController : ControllerBase
 {
-    private readonly IUsersRepository _usersRepository;
+    private readonly IUsersService _usersService;
 
-    public UsersController(IUsersRepository usersRepository)
+    public UsersController(IUsersService usersService)
     {
-        _usersRepository = usersRepository;
+        _usersService = usersService;
     }
 
     [HttpGet]
     public async Task<ActionResult<List<UserEntity>>> GetUsers()
     {   
-        return await _usersRepository.GetUsers();
+        return await _usersService.GetUsers();
     }
 
     [HttpGet("{email}")]
     public async Task<ActionResult<UserDto>> GetUserByEmail(string email)
     {
-        var user =  await _usersRepository.GetUserByEmail(email);
+        var user =  await _usersService.GetUserByEmail(email);
 
         if (user == null) return NotFound();
         
@@ -53,7 +53,7 @@ public class UsersController : ControllerBase
             || string.IsNullOrWhiteSpace(user.PasswordHash))
             return BadRequest("Invalid users data.");
 
-        await _usersRepository.CreateUser(userEnity);
+        await _usersService.CreateUser(userEnity);
         
         return new UserDto
         {
@@ -69,7 +69,7 @@ public class UsersController : ControllerBase
         if (string.IsNullOrWhiteSpace(user.Name)) 
             return BadRequest("Name can't be empty");
         
-        var resutl =  await _usersRepository.UpdateUser(id, user.Name);
+        var resutl =  await _usersService.UpdateUser(id, user.Name);
         
         if (resutl == null) return NotFound();
         
@@ -79,6 +79,6 @@ public class UsersController : ControllerBase
     [HttpDelete("{id}")]
     public async Task<ActionResult<bool>> DeleteUser(Guid id)
     {
-        return await _usersRepository.DeleteUser(id);
+        return await _usersService.DeleteUser(id);
     }
 }
