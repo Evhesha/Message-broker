@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using MessageBroker.AuthService.Abstractions;
+using MessageBroker.AuthService.Entities;
+using Microsoft.AspNetCore.Mvc;
 
 namespace MessageBroker.AuthService.Controllers;
 
@@ -6,5 +8,12 @@ namespace MessageBroker.AuthService.Controllers;
 [Route("[controller]")]
 public class AuthController : ControllerBase
 {
+    private readonly IAuthService _authService;
+
+    public AuthController(IAuthService authService)
+    {
+        _authService = authService;
+    }
+    
     
 }
