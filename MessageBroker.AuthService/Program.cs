@@ -7,6 +7,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddCustomCors(builder.Configuration);
 builder.Services.AddDataBase(builder.Configuration);
 builder.Services.AddApplicationServices();
+builder.Services.AddJwtAuthentication(builder.Configuration);
 
 var app = builder.Build();
 
@@ -17,6 +18,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseCors("AllowSpecificOrigin");
+app.UseAuthentication();
 app.UseAuthorization();
 app.MapControllers();
 app.Run();

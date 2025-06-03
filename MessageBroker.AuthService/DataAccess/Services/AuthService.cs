@@ -21,15 +21,15 @@ public class AuthService : IAuthService
         _jwtProvider = jwtProvider;
     }
 
-    public async Task<UserDto?> Rigister(UserEntity user)
+    public async Task<UserDto?> Register(string name, string email, string password)
     {
-        var hashedPassword = _passwordHasher.Generate(user.PasswordHash);
+        var hashedPassword = _passwordHasher.Generate(password);
 
         var userEntity = new UserEntity
         {
             Id = Guid.NewGuid(),
-            Name = user.Name,
-            Email = user.Email,
+            Name = name,
+            Email = email,
             PasswordHash = hashedPassword,
         };
         
