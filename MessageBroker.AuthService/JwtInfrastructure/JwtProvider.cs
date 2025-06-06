@@ -20,7 +20,7 @@ public class JwtProvider
     {
         var claims = new List<Claim>
         {
-            new Claim("UserId", user.Id.ToString())
+            new Claim("Id", user.Id.ToString())
         };
 
         var signingCredentials = new SigningCredentials(
