@@ -43,11 +43,30 @@ public class AuthController : ControllerBase
         try
         {
             var token = await _authService.Login(loginContract.Email, loginContract.Password);
+            
+            HttpContext.Response.Cookies.Append("tasty-cookies", token, new CookieOptions
+            {
+                Secure = true,
+                SameSite = SameSiteMode.Strict, 
+                Expires = DateTime.UtcNow.AddHours(24)
+            });
+            
             return Ok(token);
         }
         catch (UnauthorizedAccessException ex)
         {
             return Unauthorized(ex.Message);   
         }
+    }
+    
+    [HttpPost("logout")]
+    public IActionResult Logout()
+    {
+        Response.Cookies.Append("tasty-cookies", "", new CookieOptions
+        {
+            Expires = DateTime.UtcNow.AddDays(-1)
+        });
+
+        return Ok(new { message = "Logout successful" });
     }
 }
