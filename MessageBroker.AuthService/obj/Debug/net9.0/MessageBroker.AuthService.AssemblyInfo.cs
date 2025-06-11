@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("MessageBroker.AuthService")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1aaf9146fcea166527d0651ee64638d550b6ede0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+25fcb74d01a4464356ca7de350adefb5e1bf2d4d")]
 [assembly: System.Reflection.AssemblyProductAttribute("MessageBroker.AuthService")]
 [assembly: System.Reflection.AssemblyTitleAttribute("MessageBroker.AuthService")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

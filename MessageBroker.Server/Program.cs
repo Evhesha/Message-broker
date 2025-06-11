@@ -1,4 +1,3 @@
-using MessageBroker.Kafka;
 using MessageBroker.Kafka.Consumer.Extensions;
 using MessageBroker.Kafka.Producer.Extensions;
 using MessageBroker.Server.Extensions;
@@ -33,5 +32,4 @@ app.UseCors("AllowSpecificOrigin");
 app.UseAuthorization();
 app.MapHub<MessageHub>("/messageHub");
 app.MapControllers();
-
 app.Run();
