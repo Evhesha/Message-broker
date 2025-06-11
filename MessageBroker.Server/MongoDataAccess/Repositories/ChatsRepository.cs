@@ -13,21 +13,14 @@ public class ChatRepository
         _chatCollection = database.GetCollection<Chat>("Chats");
     }
 
-    public async Task<Chat> GetChatByUserIdAsync(string userId)
+    public async Task<List<Chat>> GetChatsByUserId(string userId)
     {
         var filter = Builders<Chat>.Filter.Eq("userId", userId);
-        return await _chatCollection.Find(filter).FirstOrDefaultAsync();
+        return await _chatCollection.Find(filter).ToListAsync();
     }
     
-    public async Task CreateChatAsync(Chat chat)
+    public async Task CreateChat(Chat chat)
     {
         await _chatCollection.InsertOneAsync(chat);
-    }
-    
-    public async Task AddMessageToChatAsync(string chatId, Message message)
-    {
-        var filter = Builders<Chat>.Filter.Eq("_id", chatId);
-        var update = Builders<Chat>.Update.Push("messages", message);
-        await _chatCollection.UpdateOneAsync(filter, update);
     }
 }

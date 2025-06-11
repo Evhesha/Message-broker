@@ -25,4 +25,8 @@
       <ProjectReference Include="..\MessageBroker.Kafka\MessageBroker.Kafka.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <Folder Include="MongoDataAccess\Services\" />
+    </ItemGroup>
+
 </Project>
