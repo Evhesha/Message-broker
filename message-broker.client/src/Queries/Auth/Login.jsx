@@ -1,6 +1,6 @@
-export const PostQuestion = async (data) => {
+export const Login = async (data) => {
     try {
-        const response = await fetch('https://localhost:7151/api/kafka/create-ollama-question', {
+        const response = await fetch('https://localhost:7080/Auth/login', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
