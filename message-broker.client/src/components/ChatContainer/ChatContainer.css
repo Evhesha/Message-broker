@@ -1,11 +1,10 @@
-/* Основные стили */
 .chat-container {
     display: flex;
     flex-direction: column;
     height: 100%;
     background-color: #f5f5f5;
     transition: background-color 0.3s ease-in-out;
-    border-radius: 20px; /* Скругленные углы контейнера */
+    border-radius: 20px; 
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     overflow: hidden;
 }
@@ -14,7 +13,6 @@
     background-color: #2d2d2d;
 }
 
-/* Контейнер сообщений */
 .messages {
     flex: 1;
     overflow-y: auto;
@@ -24,14 +22,12 @@
     gap: 15px;
 }
 
-/* Контейнеры сообщений */
 .message-container {
     display: flex;
     animation-duration: 0.3s;
     animation-name: fadeIn;
 }
 
-/* Выравнивание сообщений */
 .sent-container {
     justify-content: flex-end;
 }
@@ -40,7 +36,6 @@
     justify-content: flex-start;
 }
 
-/* Стили сообщений */
 .message {
     display: flex;
     max-width: 70%;
@@ -110,13 +105,12 @@
     color: rgba(255, 255, 255, 0.6);
 }
 
-/* Поле ввода */
 .input-container {
     background-color: #fff;
     border-top: 1px solid #ddd;
     padding: 12px;
-    display: flex; /* Flexbox для выравнивания */
-    justify-content: space-between; /* Между полем ввода и кнопкой */
+    display: flex; 
+    justify-content: space-between;
     align-items: center;
 }
 
@@ -125,7 +119,6 @@
     border-top: 1px solid #444;
 }
 
-/* Поле ввода с гладкими углами и легкой тенью */
 .message-input {
     border: none;
     resize: none;
@@ -136,8 +129,8 @@
     min-height: 50px;
     max-height: 60px;
     width: 80%;
-    border-radius: 40px; /* Более округленные углы */
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Легкая тень */
+    border-radius: 40px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
     transition: background-color 0.3s ease;
 }
 .message-input.form-control {
@@ -150,7 +143,6 @@
     padding: 12px 20px;
 }
 
-
 .message-input:focus {
     outline: none;
     background-color: #f2f2f2;
@@ -161,7 +153,6 @@
     background-color: #3a3a3a;
 }
 
-/* Кнопка отправки */
 .send-button {
     background: linear-gradient(135deg, #00b09b, #96c93d) !important;
     color: white !important;
@@ -179,7 +170,7 @@
 
 
 .send-button:hover {
-    background-color: #019184; /* Чуть темнее при наведении */
+    background-color: #019184;
 }
 
 .send-button:disabled {

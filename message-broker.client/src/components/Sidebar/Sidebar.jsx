@@ -3,6 +3,7 @@ import './Sidebar.css';
 import { Sun, Moon, Globe, BoxArrowInRight } from 'react-bootstrap-icons';
 import LoginModal from '../LoginModal/LoginModal';
 
+
 const Sidebar = ({ toggleTheme, startNewChat, chatHistory, isDarkTheme, toggleLanguage }) => {
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -10,6 +11,9 @@ const Sidebar = ({ toggleTheme, startNewChat, chatHistory, isDarkTheme, toggleLa
 
     return (
         <div className={`sidebar ${isDarkTheme ? 'dark' : ''}`}>
+            <img src="/bntu_assistent_logo.png" alt="BNTU Assistant Logo" />
+
+            
             <div className="sidebar-header">
                 <button 
                     className="btn theme-toggle" 
