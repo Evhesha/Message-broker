@@ -1,0 +1,62 @@
+import { useState } from 'react';
+import '../LoginModal.css';
+
+const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
+    const [username, setUsername] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+    const [errorMessage, setErrorMessage] = useState('');
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        if (password !== confirmPassword) {
+            setErrorMessage('Passwords do not match!');
+            return;
+        }
+        if (!email.includes('@')) {
+            setErrorMessage('Please enter a valid email.');
+            return;
+        }
+        onSubmit({ username, email, password });
+        setErrorMessage('');
+    };
+
+    return (
+        <form onSubmit={handleSubmit}>
+            <input 
+                type="text" 
+                placeholder="Username" 
+                value={username} 
+                onChange={(e) => setUsername(e.target.value)} 
+                required 
+            />
+            <input 
+                type="email" 
+                placeholder="Email" 
+                value={email} 
+                onChange={(e) => setEmail(e.target.value)} 
+                required 
+            />
+            <input 
+                type="password" 
+                placeholder="Password" 
+                value={password} 
+                onChange={(e) => setPassword(e.target.value)} 
+                required 
+            />
+            <input 
+                type="password" 
+                placeholder="Repeat password" 
+                value={confirmPassword} 
+                onChange={(e) => setConfirmPassword(e.target.value)} 
+                required 
+            />
+            {errorMessage && <div className="error-message">{errorMessage}</div>}
+            <button type="submit" className="submit-button">Register</button>
+            <button onClick={onGoogleLogin} className="google-button">Sign up with Google</button>
+        </form>
+    );
+};
+
+export default RegisterForm;

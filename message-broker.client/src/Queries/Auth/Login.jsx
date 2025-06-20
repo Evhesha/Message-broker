@@ -4,13 +4,15 @@ export const Login = async (data) => {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data),
+            credentials: 'include'
         });
 
         if (!response.ok) {
             throw new Error(`Error HTTP: ${response.status}`);
         }
 
-        return await response.json();
+        const token = await response.text();
+        return token;
     } catch (error) {
         console.error('Error:', error);
         throw error;

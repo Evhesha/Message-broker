@@ -68,7 +68,7 @@
 
 .close-button:hover {
     transform: rotate(90deg);
-    color: #4caf50; /* Плавная смена цвета */
+    color: #4caf50;
 }
 
 input[type="text"],
@@ -89,8 +89,8 @@ input[type="password"]:focus,
 input[type="email"]:focus {
     outline: none;
     border-color: #4caf50;
-    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); /* поправил синтаксис */
-    transform: scale(1.02); /* Лёгкое увеличение при фокусе */
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.2); 
+    transform: scale(1.02); 
 }
 
 
@@ -109,8 +109,8 @@ input[type="email"]:focus {
 
 .submit-button:hover {
     background-color: #157347;
-    transform: scale(1.05); /* Легкое увеличение кнопки */
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); /* Плавное добавление тени */
+    transform: scale(1.05); 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15); 
 }
 
 .register-text {
