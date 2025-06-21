@@ -1,5 +1,9 @@
 import { useState } from 'react';
+import { Register } from '../../../Queries/Auth/Register';
 import '../LoginModal.css';
+
+
+import { ToastContainer, toast } from 'react-toastify';
 
 const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
     const [username, setUsername] = useState('');
@@ -18,7 +22,12 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
             setErrorMessage('Please enter a valid email.');
             return;
         }
-        onSubmit({ username, email, password });
+        
+        const notify = () => toast("Wow so easy!");
+
+        const result = Register({Name: username, Email: email, Password: password});
+        console.log("Success: ", result);
+        onSubmit(result);
         setErrorMessage('');
     };
 
