@@ -3,6 +3,7 @@ import ChatContainer from './components/ChatContainer/ChatContainer';
 import Sidebar from './components/Sidebar/Sidebar';
 import SignalRConsoleLogger from './components/SignalRConsolerLogger';
 import './App.css';
+import { ToastContainer } from 'react-toastify';
 
 const App = () => {
     const [messages, setMessages] = useState([]);
@@ -37,6 +38,7 @@ const App = () => {
                 />
             </div>
             <SignalRConsoleLogger onMessageReceived={handleSignalRMessage} />
+            <ToastContainer />
         </div>
     );
 };
