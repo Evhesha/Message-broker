@@ -1,13 +1,8 @@
-﻿using MessageBroker.Server.Models;
+﻿using MessageBroker.Server.Abstractions;
+using MessageBroker.Server.Models;
 using MongoDB.Driver;
 
 namespace MessageBroker.Server.MongoDataAccess;
-
-public interface IMessagesRepository
-{
-    Task<List<Message>> GetMessagesByChatIdAsync(string chatId);
-    Task AddMessageToChatAsync(string chatId, Message message);
-}
 
 public class MessagesRepository : IMessagesRepository
 {
@@ -19,14 +14,14 @@ public class MessagesRepository : IMessagesRepository
         _chatCollection = database.GetCollection<Chat>("Chats");
     }
     
-    public async Task<List<Message>> GetMessagesByChatIdAsync(string chatId)
+    public async Task<List<Message>> GetMessagesByChatId(string chatId)
     {
         var filter = Builders<Chat>.Filter.Eq("_id", chatId);
         var chat = await _chatCollection.Find(filter).FirstOrDefaultAsync();
         return chat?.Messages ?? new List<Message>();
     }
     
-    public async Task AddMessageToChatAsync(string chatId, Message message)
+    public async Task AddMessageToChat(string chatId, Message message)
     {
         var filter = Builders<Chat>.Filter.Eq("_id", chatId);
         var update = Builders<Chat>.Update.Push("messages", message);
