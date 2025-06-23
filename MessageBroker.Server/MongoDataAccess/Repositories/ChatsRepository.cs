@@ -1,9 +1,10 @@
-﻿using MessageBroker.Server.Models;
+﻿using MessageBroker.Server.Abstractions;
+using MessageBroker.Server.Models;
 using MongoDB.Driver;
 
 namespace MessageBroker.Server.MongoDataAccess;
 
-public class ChatRepository
+public class ChatRepository : IChatRepository
 {
     private readonly IMongoCollection<Chat> _chatCollection;
 
@@ -22,5 +23,11 @@ public class ChatRepository
     public async Task CreateChat(Chat chat)
     {
         await _chatCollection.InsertOneAsync(chat);
+    }
+
+    public async Task DeleteChat(string id)
+    {
+        var filter = Builders<Chat>.Filter.Eq(c => c.Id, id);
+        await _chatCollection.DeleteOneAsync(filter);
     }
 }
