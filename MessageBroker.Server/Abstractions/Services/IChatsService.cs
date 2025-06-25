@@ -2,7 +2,7 @@
 
 namespace MessageBroker.Server.Abstractions;
 
-public interface IChatRepository
+public interface IChatsService
 {
     Task<List<Chat>> GetChatsByUserId(string userId);
     Task CreateChat(Chat chat);

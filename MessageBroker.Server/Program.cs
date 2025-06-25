@@ -9,11 +9,12 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllers();
 builder.Services.AddCors();
 builder.Services.AddOpenApi();
+
 builder.Services.AddCustomCors(builder.Configuration);
 builder.Services.AddDataBase(builder.Configuration);
+builder.Services.AddApplicationServices();
 
 builder.Services.AddSingleton<IMessageSender, SignalRMessageSender>();
-
 builder.Services.AddSignalR();
 
 builder.Services.AddKafkaProducer<string>(builder.Configuration.GetSection("Kafka:Question"));

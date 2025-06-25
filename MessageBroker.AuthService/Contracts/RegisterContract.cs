@@ -4,6 +4,6 @@ namespace MessageBroker.AuthService.Contracts;
 
 public record RegisterContract(
     [Required] string Name,
-    [Required] string Email,
+    [Required] [EmailAddress] string Email,
     [Required] string Password
     );

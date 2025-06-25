@@ -4,11 +4,11 @@ using MongoDB.Driver;
 
 namespace MessageBroker.Server.MongoDataAccess;
 
-public class ChatRepository : IChatRepository
+public class ChatsRepository : IChatsRepository
 {
     private readonly IMongoCollection<Chat> _chatCollection;
 
-    public ChatRepository(IMongoClient mongoClient)
+    public ChatsRepository(IMongoClient mongoClient)
     {
         var database = mongoClient.GetDatabase("ChatDatabase");
         _chatCollection = database.GetCollection<Chat>("Chats");

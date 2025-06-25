@@ -3,7 +3,7 @@ using MessageBroker.Server.Models;
 
 namespace MessageBroker.Server.MongoDataAccess.Services;
 
-public class MessagesService
+public class MessagesService : IMessagesService
 {
     private readonly IMessagesRepository  _messagesRepository;
     

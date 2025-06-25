@@ -3,34 +3,27 @@ using MessageBroker.Server.Models;
 
 namespace MessageBroker.Server.MongoDataAccess.Services;
 
-public interface IChatsService
-{
-    Task<List<Chat>> GetChatsByUserId(string userId);
-    Task CreateChat(Chat chat);
-    Task DeleteChat(string id);
-}
-
 public class ChatsService : IChatsService
 {
-    private readonly IChatRepository _chatRepository;
+    private readonly IChatsRepository _chatsRepository;
 
-    public ChatsService(IChatRepository chatRepository)
+    public ChatsService(IChatsRepository chatsRepository)
     {
-        _chatRepository = chatRepository;
+        _chatsRepository = chatsRepository;
     }
 
     public async Task<List<Chat>> GetChatsByUserId(string userId)
     {
-        return await _chatRepository.GetChatsByUserId(userId);
+        return await _chatsRepository.GetChatsByUserId(userId);
     }
     
     public async Task CreateChat(Chat chat)
     {
-        await _chatRepository.CreateChat(chat);
+        await _chatsRepository.CreateChat(chat);
     }
 
     public async Task DeleteChat(string id)
     { 
-        await _chatRepository.DeleteChat(id);
+        await _chatsRepository.DeleteChat(id);
     }
 }
