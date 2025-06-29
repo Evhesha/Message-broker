@@ -32,7 +32,14 @@ The application architecture is organized around the interaction of several key 
 - Allows the client to load past messages when switching between chats.
 - Supports the structure of storing data in the form of documents.
 
-## 6. Interaction of Components
+## 6. Auth Server (Authentication & Authorization)
+- Handles user registration, login, and identity validation.
+- Issues signed JWT tokens, stored in secure HTTP-only cookies.
+- Hashes passwords securely (e.g., using bcrypt).
+- Provides middleware to authenticate requests on protected endpoints.
+- Stores user data in PostgreSQL.
+
+## 7. Interaction of Components
 1. **Client → Main server**: Sending a question.
 2. **Main server → Kafka**: Passing a message for processing.
 3. **Kafka → Ollama server**: Receiving and processing the question.
