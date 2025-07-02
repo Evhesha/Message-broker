@@ -1,5 +1,6 @@
 ﻿using MessageBroker.Server.Abstractions;
 using MessageBroker.Server.Models;
+using Microsoft.AspNetCore.Http.HttpResults;
 using MongoDB.Driver;
 
 namespace MessageBroker.Server.MongoDataAccess;
@@ -16,7 +17,7 @@ public class ChatsRepository : IChatsRepository
 
     public async Task<List<Chat>> GetChatsByUserId(string userId)
     {
-        var filter = Builders<Chat>.Filter.Eq("userId", userId);
+        var filter = Builders<Chat>.Filter.Eq(c => c.UserId, userId);
         return await _chatCollection.Find(filter).ToListAsync();
     }
     
@@ -28,6 +29,11 @@ public class ChatsRepository : IChatsRepository
     public async Task DeleteChat(string id)
     {
         var filter = Builders<Chat>.Filter.Eq(c => c.Id, id);
-        await _chatCollection.DeleteOneAsync(filter);
+        var result = await _chatCollection.DeleteOneAsync(filter);
+
+        if (result.DeletedCount == 0)
+        {
+            throw new Exception();
+        }
     }
 }

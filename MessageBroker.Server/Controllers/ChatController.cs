@@ -15,6 +15,17 @@ public class ChatController : ControllerBase
         _chatsService = chatsService;
     }
 
+    [HttpGet("{userId}")]
+    public async Task<ActionResult<List<Chat>>> GetUserChats([FromRoute] string userId)
+    {
+        var chats = await _chatsService.GetChatsByUserId(userId);
+
+        if (chats == null || chats.Count == 0)
+            return NotFound("There are no chats for this user");
+
+        return Ok(chats);
+    }
+
     [HttpPost]
     public async Task<ActionResult> CreateChat([FromBody] Chat chat)
     {
@@ -25,8 +36,22 @@ public class ChatController : ControllerBase
             Messages = new List<Message>()
         };
 
-        _chatsService.CreateChat(chatEntity);
-        return Ok();
+        await _chatsService.CreateChat(chatEntity);
+        return Ok("Chat was created");
     }
 
+    [HttpDelete("{chatId}")]
+    public async Task<ActionResult> DeleteChat(string chatId)
+    {
+        try
+        {
+            await _chatsService.DeleteChat(chatId);
+        }
+        catch (Exception)
+        {
+            return BadRequest("There is no chat with such id");
+        }
+        
+        return Ok("Chat was deleted successfully");
+    }
 }
