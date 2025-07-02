@@ -15,13 +15,18 @@ public class ChatController : ControllerBase
         _chatsService = chatsService;
     }
 
-    /*public async Task<ActionResult> CreateChat(Chat chat)
+    [HttpPost]
+    public async Task<ActionResult> CreateChat([FromBody] Chat chat)
     {
         var chatEntity = new Chat
         {
-            
+            UserId = chat.UserId,
+            ChatName = chat.ChatName,
+            Messages = new List<Message>()
         };
+
+        _chatsService.CreateChat(chatEntity);
+        return Ok();
     }
-    */
 
 }
