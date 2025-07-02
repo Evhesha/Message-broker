@@ -20,6 +20,9 @@ public class AuthController : ControllerBase
     [HttpPost("register")]
     public async Task<ActionResult<UserDto?>> Register([FromBody] RegisterContract regContract)
     {
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+            
         var user = new UserEntity
         {
             Id = Guid.NewGuid(),
