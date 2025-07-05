@@ -16,14 +16,14 @@ public class MessagesRepository : IMessagesRepository
     
     public async Task<List<Message>> GetMessagesByChatId(string chatId)
     {
-        var filter = Builders<Chat>.Filter.Eq("_id", chatId);
+        var filter = Builders<Chat>.Filter.Eq(c => c.Id, chatId);
         var chat = await _chatCollection.Find(filter).FirstOrDefaultAsync();
         return chat?.Messages ?? new List<Message>();
     }
     
     public async Task AddMessageToChat(string chatId, Message message)
     {
-        var filter = Builders<Chat>.Filter.Eq("_id", chatId);
+        var filter = Builders<Chat>.Filter.Eq(c => c.Id, chatId);
         var update = Builders<Chat>.Update.Push("messages", message);
         await _chatCollection.UpdateOneAsync(filter, update);
     }

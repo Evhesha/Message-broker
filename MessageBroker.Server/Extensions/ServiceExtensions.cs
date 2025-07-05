@@ -14,6 +14,8 @@ public static class ServiceExtensions
         services.AddScoped<IMessagesRepository, MessagesRepository>();
         services.AddScoped<IMessagesService, MessagesService>();
 
+        services.AddSingleton<IMessageSender, SignalRMessageSender>();
+
         return services;
     }
 }
