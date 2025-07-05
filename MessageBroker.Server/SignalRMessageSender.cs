@@ -1,17 +1,32 @@
-﻿using MessageBroker.Server.Hubs;
+﻿using MessageBroker.Server.Abstractions;
+using MessageBroker.Server.Hubs;
+using MessageBroker.Server.Models;
 using Microsoft.AspNetCore.SignalR;
 
 public class SignalRMessageSender : IMessageSender
 {
     private readonly IHubContext<MessageHub> _hubContext;
-
-    public SignalRMessageSender(IHubContext<MessageHub> hubContext)
+    //private readonly IMessagesService _messagesService;
+    public SignalRMessageSender(
+        IHubContext<MessageHub> hubContext
+        //IMessagesService messagesService
+        )
     {
         _hubContext = hubContext;
+       // _messagesService = messagesService;
     }
 
-    public async Task SendMessage(string message)
+    public async Task SendMessage(string messageResponse)
     {
-        await _hubContext.Clients.All.SendAsync("ReceiveMessage", message);
+        var message = new Message
+        {
+            Type = "chatResponse",
+            Text = messageResponse,
+            Date = DateTime.Now
+        };
+        
+        //await _messagesService.AddMessageToChat(message);
+        
+        await _hubContext.Clients.All.SendAsync("ReceiveMessage", messageResponse);
     }
 }
