@@ -6,18 +6,21 @@ using Microsoft.AspNetCore.SignalR;
 public class SignalRMessageSender : IMessageSender
 {
     private readonly IHubContext<MessageHub> _hubContext;
-    //private readonly IMessagesService _messagesService;
+    private readonly IServiceScopeFactory  _serviceScopeFactory;
     public SignalRMessageSender(
-        IHubContext<MessageHub> hubContext
-        //IMessagesService messagesService
+        IHubContext<MessageHub> hubContext,
+        IServiceScopeFactory  serviceScopeFactory
         )
     {
         _hubContext = hubContext;
-       // _messagesService = messagesService;
+        _serviceScopeFactory = serviceScopeFactory;
     }
 
     public async Task SendMessage(string messageResponse)
     {
+        using var scope = _serviceScopeFactory.CreateScope();
+        var messagesService = scope.ServiceProvider.GetRequiredService<IMessagesService>();
+        
         var message = new Message
         {
             Type = "chatResponse",

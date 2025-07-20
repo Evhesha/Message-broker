@@ -49,9 +49,9 @@ public class AuthController : ControllerBase
             
             HttpContext.Response.Cookies.Append("tasty-cookies", token, new CookieOptions
             {
-                Secure = true,
                 SameSite = SameSiteMode.Strict, 
-                Expires = DateTime.UtcNow.AddHours(24)
+                Expires = DateTime.UtcNow.AddHours(24),
+                Path = "/"
             });
             
             return Ok(token);
