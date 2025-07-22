@@ -23,6 +23,18 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
         theme: "dark",
         });
 
+    const notifyLightError = () => toast.error('Register unsuccess!', {
+        autoClose: 3000,
+        draggable: true,
+        theme: "light",
+        });
+
+    const notifyDarkError = () => toast.error('Regiser unsuccess!', {
+        autoClose: 3000,
+        draggable: true,
+        theme: "dark",
+        });
+
     const handleSubmit = (e) => {
         e.preventDefault();
         if (password !== confirmPassword) {

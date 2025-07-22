@@ -160,3 +160,7 @@ h3 {
 .sidebar.dark .login-button:hover {
     background-color: #157347;
 }
+
+.sidebar.dark * {
+  color: white;
+}

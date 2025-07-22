@@ -27,7 +27,7 @@ const App = () => {
 
     return (
         <div className={`app-container ${darkMode ? 'dark' : ''}`}>
-            <Sidebar toggleTheme={toggleTheme} startNewChat={startNewChat} chatHistory={chatHistory} />
+            <Sidebar toggleTheme={toggleTheme} isDarkTheme={darkMode} startNewChat={startNewChat} chatHistory={chatHistory} />
             <div className="chat-area">
                 <ChatContainer 
                     messages={messages} 
