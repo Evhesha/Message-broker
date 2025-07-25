@@ -1,4 +1,4 @@
-import jwtDecode from "jwt-decode";
+import {jwtDecode} from "jwt-decode";
 
 function getCookie(name) {
   const value = `; ${document.cookie}`;
