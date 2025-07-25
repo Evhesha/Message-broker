@@ -2,8 +2,7 @@ import { useState } from 'react';
 import { Register } from '../../../Queries/Auth/Register';
 import '../LoginModal.css';
 
-
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 
 const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
     const [username, setUsername] = useState('');
@@ -11,6 +10,30 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
     const [password, setPassword] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
     const [errorMessage, setErrorMessage] = useState('');
+
+    const notifyLight = () => toast.success('Register success!', {
+        autoClose: 3000,
+        draggable: true,
+        theme: "light",
+        });
+
+    const notifyDark = () => toast.success('Regiser success!', {
+        autoClose: 3000,
+        draggable: true,
+        theme: "dark",
+        });
+
+    const notifyLightError = () => toast.error('Register unsuccess!', {
+        autoClose: 3000,
+        draggable: true,
+        theme: "light",
+        });
+
+    const notifyDarkError = () => toast.error('Regiser unsuccess!', {
+        autoClose: 3000,
+        draggable: true,
+        theme: "dark",
+        });
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -22,11 +45,9 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
             setErrorMessage('Please enter a valid email.');
             return;
         }
-        
-        const notify = () => toast("Wow so easy!");
 
         const result = Register({Name: username, Email: email, Password: password});
-        console.log("Success: ", result);
+        notifyLight();
         onSubmit(result);
         setErrorMessage('');
     };

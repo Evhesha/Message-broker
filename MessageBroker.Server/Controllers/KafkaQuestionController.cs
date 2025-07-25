@@ -23,8 +23,7 @@ public class KafkaController : ControllerBase
     [HttpPost("create-ollama-question")]
     public async Task<IActionResult> SendKafkaMessage([FromBody] QuestionRequest request)
     {
-        Console.WriteLine("Produce message to Kafka...");
-        await _kafkaProducer.ProduceAsync(request.Question, default);
+        await _kafkaProducer.ProduceAsync(request.Question);
         Console.WriteLine("Message sent to Kafka!");
         
         var message = new Message

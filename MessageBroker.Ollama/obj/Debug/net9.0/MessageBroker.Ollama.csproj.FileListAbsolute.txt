@@ -70,12 +70,6 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets.development.json
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets.build.endpoints.json
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets\msbuild.MessageBroker.Ollama.Microsoft.AspNetCore.StaticWebAssets.props
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets\msbuild.MessageBroker.Ollama.Microsoft.AspNetCore.StaticWebAssetEndpoints.props
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets\msbuild.build.MessageBroker.Ollama.props
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.MessageBroker.Ollama.props
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.MessageBroker.Ollama.props
-C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets.pack.json
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\MessageB.B4E51C53.Up2Date
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\MessageBroker.Ollama.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\refint\MessageBroker.Ollama.dll
@@ -117,3 +111,4 @@ C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\System.Net.WebSockets.WebSocketProtocol.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\MessageBroker.Shared.dll
 C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\bin\Debug\net9.0\MessageBroker.Shared.pdb
+C:\Users\EvGenii\RiderProjects\MessageBroker\MessageBroker.Ollama\obj\Debug\net9.0\staticwebassets.build.json.cache

@@ -64,6 +64,20 @@
     margin-left: auto;
 }
 
+.logout-button {
+    cursor: pointer;
+    background-color: #198778;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    padding: 6px 12px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: all 0.2s;
+    margin-left: auto;
+}
+
 .login-button:hover {
     background-color: #157347;
 }
@@ -145,4 +159,8 @@ h3 {
 
 .sidebar.dark .login-button:hover {
     background-color: #157347;
+}
+
+.sidebar.dark * {
+  color: white;
 }

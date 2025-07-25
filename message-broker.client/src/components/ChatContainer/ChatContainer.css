@@ -30,6 +30,7 @@
 
 .sent-container {
     justify-content: flex-end;
+    color:#00b09b;
 }
 
 .received-container {
@@ -117,6 +118,12 @@
 .dark .input-container {
     background-color: #343434;
     border-top: 1px solid #444;
+    color: #fff;
+}
+
+.dark .message-input::placeholder{
+    color: #fff;
+    opacity: 0.6;
 }
 
 .message-input {
