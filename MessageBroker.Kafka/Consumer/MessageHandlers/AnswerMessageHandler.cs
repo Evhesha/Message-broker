@@ -1,7 +1,7 @@
 ﻿using MessageBroker.Kafka.Consumer.Abstractions;
-using MessageBroker.Kafka.Models;
+using MessageBroker.Server.Responses;
 
-public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
+public class AnswerMessageHandler : IMessageHandler<OllamaResponse>
 {
     private readonly IMessageSender _messageSender;
 
@@ -10,16 +10,16 @@ public class AnswerMessageHandler : IMessageHandler<List<OllamaMessage>>
         _messageSender = messageSender;
     }
 
-    public async Task HandleAsync(List<OllamaMessage> messages, CancellationToken cancellationToken)
+    public async Task HandleAsync(OllamaResponse response, CancellationToken cancellationToken)
     {
         try
         {
-            foreach (var message in messages)
+            foreach (var message in response.Messages)
             {
                 foreach (var content in message.Contents)
                 {
-                    Console.WriteLine($"Text: {content.Text}");
-                    await _messageSender.SendMessage(content.Text);
+                    await _messageSender.SendMessage(content.Text, response.ChatId);
+                    Console.WriteLine("Answer was received!");
                 }
             }
         }

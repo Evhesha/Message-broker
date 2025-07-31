@@ -16,7 +16,7 @@ public class SignalRMessageSender : IMessageSender
         _serviceScopeFactory = serviceScopeFactory;
     }
 
-    public async Task SendMessage(string messageResponse)
+    public async Task SendMessage(string messageResponse, string chatId)
     {
         using var scope = _serviceScopeFactory.CreateScope();
         var messagesService = scope.ServiceProvider.GetRequiredService<IMessagesService>();
@@ -28,7 +28,7 @@ public class SignalRMessageSender : IMessageSender
             Date = DateTime.Now
         };
         
-        //await _messagesService.AddMessageToChat(message);
+        await messagesService.AddMessageToChat(chatId, message);
         
         await _hubContext.Clients.All.SendAsync("ReceiveMessage", messageResponse);
     }

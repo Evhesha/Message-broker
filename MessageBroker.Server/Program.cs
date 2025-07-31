@@ -1,8 +1,9 @@
 using MessageBroker.Kafka.Consumer.Extensions;
 using MessageBroker.Kafka.Producer.Extensions;
+using MessageBroker.Server;
 using MessageBroker.Server.Extensions;
 using MessageBroker.Server.Hubs;
-using OllamaMessage = MessageBroker.Kafka.Models.OllamaMessage;
+using MessageBroker.Server.Responses;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,8 +18,8 @@ builder.Services.AddApplicationServices();
 builder.Services.AddSingleton<IMessageSender, SignalRMessageSender>();
 builder.Services.AddSignalR();
 
-builder.Services.AddKafkaProducer<string>(builder.Configuration.GetSection("Kafka:Question"));
-builder.Services.AddKafkaConsumer<List<OllamaMessage>,
+builder.Services.AddKafkaProducer<QuestionKafkaMessage>(builder.Configuration.GetSection("Kafka:Question"));
+builder.Services.AddKafkaConsumer<OllamaResponse,
     AnswerMessageHandler>(builder.Configuration.GetSection("Kafka:Ollama"));
 
 var app = builder.Build();
