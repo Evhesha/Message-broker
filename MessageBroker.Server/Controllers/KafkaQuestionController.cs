@@ -9,11 +9,11 @@ namespace MessageBroker.Server.Controllers;
 [Route("api/kafka")]
 public class KafkaController : ControllerBase
 {
-    private readonly IKafkaProducer<string> _kafkaProducer;
+    private readonly IKafkaProducer<QuestionKafkaMessage> _kafkaProducer;
     private readonly IMessagesService  _messagesService;
 
     public KafkaController(
-        IKafkaProducer<string> kafkaProducer,
+        IKafkaProducer<QuestionKafkaMessage> kafkaProducer,
         IMessagesService messagesService)
     {
         _kafkaProducer = kafkaProducer;
@@ -23,17 +23,23 @@ public class KafkaController : ControllerBase
     [HttpPost("create-ollama-question")]
     public async Task<IActionResult> SendKafkaMessage([FromBody] QuestionRequest request)
     {
-        await _kafkaProducer.ProduceAsync(request.Question);
+        var message = new QuestionKafkaMessage
+        {
+            Question = request.Question,
+            ChatId = request.ChatId
+        };
+        
+        await _kafkaProducer.ProduceAsync(message);
         Console.WriteLine("Message sent to Kafka!");
         
-        var message = new Message
+        var userMessage = new Message
         {
             Type = "userMessage",
             Text = request.Question,
-            Date = DateTime.Now
+            Date = DateTime.Now,
         };
         
-        await _messagesService.AddMessageToChat(request.ChatId, message);
+        await _messagesService.AddMessageToChat(request.ChatId, userMessage);
 
         return Ok(new { message = "Message sent to Kafka!" });
     }
