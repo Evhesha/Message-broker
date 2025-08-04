@@ -1,0 +1,10 @@
+{
+    "msgHistory": "История сообщений",
+    "newChat": "Новый чат",
+    "login": "Войти",
+    "logout": "Выйти",
+
+    "lightThemeHint": "Переключиться на светлую тему",
+    "darkThemeHint": "Переключиться на темную тему",
+    "selectLanguageHint": "Выбрать язык"
+}

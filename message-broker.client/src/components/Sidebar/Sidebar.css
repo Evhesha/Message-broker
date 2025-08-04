@@ -164,3 +164,38 @@ h3 {
 .sidebar.dark * {
   color: white;
 }
+
+.language-dropdown {
+  position: relative;
+}
+
+.language-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background: white;
+  border: 1px solid black;
+  border-radius: 6px;
+  list-style: none;
+  padding: 4px 0;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+.dark .language-menu {
+    background: #3d3d3e;
+}
+
+.language-menu li {
+  padding: 6px 12px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.language-menu li:hover {
+  background-color: #f0f0f0;
+}
+
+.dark .language-menu li:hover {
+  background-color: #1e1c1c;
+}

@@ -1,0 +1,10 @@
+{
+    "msgHistory": "Message history",
+    "newChat": "New chat",
+    "login": "login",
+    "logout": "logout",
+
+    "lightThemeHint": "Switch to light theme",
+    "darkThemeHint": "Switch to dark theme",
+    "selectLanguageHint": "Select language"
+}
