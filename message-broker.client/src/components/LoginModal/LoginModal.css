@@ -20,24 +20,22 @@
 .modal-content {
     background: linear-gradient(145deg, #ffffff, #f0f0f0);
     padding: 40px 30px;
-    border-radius: 30px !important;    width: 300px; /* Размер окна, можно настроить */
-    max-width: 30%; /* Чтобы окно не занимало всю ширину экрана */
+    border-radius: 30px !important;    width: 300px; 
+    max-width: 30%; 
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15); /* Плавные тени */
-    transition: all 0.3s ease-in-out; /* Плавное изменение */
-    animation: popIn 0.5s ease-out; /* Анимация появления */
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease-in-out;
+    animation: popIn 0.5s ease-out;
 }
 
-/* Дополнительный стиль для тёмной темы */
 .modal-overlay.dark .modal-content {
     background: linear-gradient(145deg, #2c2c2e, #1f1f1f);
     color: white;
     box-shadow: 0 30px 60px rgba(255, 255, 255, 0.1);
 }
 
-/* Анимации для плавного появления */
 @keyframes popIn {
     0% {
         transform: scale(0.8);
@@ -48,7 +46,6 @@
         opacity: 1;
     }
 }
-
 
 .modal-overlay.dark .modal-content {
     background: linear-gradient(145deg, #2c2c2e, #1f1f1f);
@@ -182,4 +179,3 @@ input[type="email"]:focus {
     margin: 8px 0;
     text-align: center;
 }
-
