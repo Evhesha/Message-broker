@@ -1,7 +1,7 @@
 # Architecture
 
 <p></p>
-<img src="https://github.com/user-attachments/assets/ecfd8c0a-0396-43c0-91d0-27adc347bf28" width="800">
+<img width="1193" height="700" alt="image" src="https://github.com/user-attachments/assets/2e58a9e8-b647-4fc2-8952-8ad4b363280a" />
 <p></p>
 
 The application architecture is organized around the interaction of several key components:
