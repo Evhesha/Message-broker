@@ -1,12 +1,14 @@
 import LoginForm from './Forms/LoginForm.jsx';
 import RegisterForm from './Forms/RegisterForm.jsx';
 import { useState } from 'react';
+import { useTranslation } from "react-i18next";
 
 const LoginModal = ({ onClose, isDarkTheme }) => {
     const [isRegistering, setIsRegistering] = useState(false);
+    const { t, i18n } = useTranslation();
 
     const handleSubmit = (data) => {
-        console.log(isRegistering ? 'Registration:' : 'Login:', data);
+        console.log(isRegistering ? t("registration") : t("login"), data);
     };
 
     const handleGoogleLogin = () => {
@@ -17,7 +19,7 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
         <div className={`modal-overlay ${isDarkTheme ? 'dark' : ''}`}>
             <div className="modal-content">
                 <button className="close-button" onClick={onClose}>×</button>
-                <h2>{isRegistering ? 'Registration' : 'Login'}</h2>
+                <h2>{isRegistering ? t("registration") : t("login")}</h2>
                 
                 {isRegistering ? (
                     <RegisterForm onSubmit={handleSubmit} onGoogleLogin={handleGoogleLogin} />
@@ -27,9 +29,9 @@ const LoginModal = ({ onClose, isDarkTheme }) => {
 
                 <div className="register-text">
                     {isRegistering ? (
-                        <span> Already have an account? <a href="#" onClick={() => setIsRegistering(false)}>Login</a></span>
+                        <span> {t("haveAccount")} <a href="#" onClick={() => setIsRegistering(false)}>{t("login")}</a></span>
                     ) : (
-                        <span> Don't have an account? <a href="#" onClick={() => setIsRegistering(true)}>Register</a></span>
+                        <span> {t("notHaveAccount")} <a href="#" onClick={() => setIsRegistering(true)}>{t("registration")}</a></span>
                     )}
                 </div>
             </div>

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Login } from "../../../Queries/Auth/Login";
 import "../LoginModal.css";
+import { useTranslation } from "react-i18next";
 
 import { toast } from "react-toastify";
 
@@ -8,6 +9,7 @@ const LoginForm = ({ onSubmit, onGoogleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const { t, i18n } = useTranslation();
 
   const notifyLight = () =>
     toast.success("Login success!", {
@@ -71,6 +73,11 @@ const LoginForm = ({ onSubmit, onGoogleLogin }) => {
       </button>
       <button onClick={onGoogleLogin} className="google-button">
         Login with Google
+        <img
+          src=".././public/locales/google-icon.png"
+          alt="Google icon"
+          className="google-icon"
+        />
       </button>
     </form>
   );

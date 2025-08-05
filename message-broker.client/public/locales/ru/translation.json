@@ -2,9 +2,17 @@
     "msgHistory": "История сообщений",
     "newChat": "Новый чат",
     "login": "Войти",
+    "registration": "Зарегистрироваться",
     "logout": "Выйти",
 
     "lightThemeHint": "Переключиться на светлую тему",
     "darkThemeHint": "Переключиться на темную тему",
-    "selectLanguageHint": "Выбрать язык"
+    "selectLanguageHint": "Выбрать язык",
+
+    "chatBotTyping": "Бот печатает...",
+    "chatWaitResponse": "Пожалуйста, дождитесь ответа бота...",
+    "chatEnterMessage": "Введите сообщение...",
+
+    "haveAccount": "Уже есть аккаунт?",
+    "notHaveAccount": "Нету аккаунта?"
 }
