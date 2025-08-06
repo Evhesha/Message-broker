@@ -1,10 +1,18 @@
 {
     "msgHistory": "Message history",
     "newChat": "New chat",
-    "login": "login",
-    "logout": "logout",
+    "login": "Login",
+    "registration": "Registration",
+    "logout": "Logout",
 
     "lightThemeHint": "Switch to light theme",
     "darkThemeHint": "Switch to dark theme",
-    "selectLanguageHint": "Select language"
+    "selectLanguageHint": "Select language",
+    
+    "chatBotTyping": "The bot is typing...",
+    "chatWaitResponse": "Please wait for the bot to respond...",
+    "chatEnterMessage": "Enter message...",
+
+    "haveAccount": "Already have an account?",
+    "notHaveAccount": " Don't have an account?"
 }

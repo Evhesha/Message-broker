@@ -3,6 +3,7 @@ import { Button, Form, Spinner, Alert } from "react-bootstrap";
 import { Send, Clock, PersonFill, Robot } from "react-bootstrap-icons";
 import "./ChatContainer.css";
 import { PostQuestion } from "../../Queries/Ollama/PostQuestion";
+import { useTranslation } from "react-i18next";
 
 const ChatContainer = ({
   messages,
@@ -14,6 +15,7 @@ const ChatContainer = ({
   const [inputMessage, setInputMessage] = useState("");
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
+  const { t, i18n } = useTranslation();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -92,7 +94,7 @@ const ChatContainer = ({
               <div className="message-content">
                 <div className="message-text typing-indicator">
                   <Spinner animation="border" size="sm" role="status" />
-                  <span className="ms-2">The bot is typing...</span>
+                  <span className="ms-2">{t("chatBotTyping")}</span>
                 </div>
               </div>
             </div>
@@ -115,8 +117,8 @@ const ChatContainer = ({
           value={inputMessage}
           placeholder={
             isWaitingForResponse
-              ? "Please wait for the bot to respond..."
-              : "Enter message..."
+              ? t("chatWaitResponse")
+              : t("chatEnterMessage")
           }
           onChange={(e) => setInputMessage(e.target.value)}
           onKeyPress={handleKeyPress}

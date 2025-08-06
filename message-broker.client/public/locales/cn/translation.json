@@ -2,9 +2,17 @@
     "msgHistory": "消息歷史",
     "newChat": "新聊天",
     "login": "登入",
+    "registration": "註冊",
     "logout": "登出",
 
     "lightThemeHint": "切換到淺色主題",
     "darkThemeHint": "切換到黑暗主題",
-    "selectLanguageHint": "選擇語言"
+    "selectLanguageHint": "選擇語言",
+
+    "chatBotTyping": "機器人正在輸入...",
+    "chatWaitResponse": "請等候機器人回應...",
+    "chatEnterMessage": "輸入訊息...",
+
+    "haveAccount": "已經有帳戶了嗎？",
+    "notHaveAccount": "沒有帳戶嗎？"
 }

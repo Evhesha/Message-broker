@@ -25,7 +25,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.08);
     transition: all 0.3s ease-in-out;
     animation: popIn 0.5s ease-out;
 }
@@ -159,6 +159,10 @@ input[type="email"]:focus {
     justify-content: center;
     gap: 10px;
     transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dark .google-button{
+    background-color: black;
 }
 
 .google-button:hover {
