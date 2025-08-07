@@ -15,7 +15,7 @@ const ChatContainer = ({
   const [inputMessage, setInputMessage] = useState("");
   const [error, setError] = useState(null);
   const messagesEndRef = useRef(null);
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const scrollToBottom = () => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
@@ -45,7 +45,7 @@ const ChatContainer = ({
       await PostQuestion({ question: inputMessage });
     } catch (error) {
       console.error("Error sending:", error);
-      setError("There was an error sending your request");
+      setError(t("sendingError"));
       setIsWaitingForResponse(false);
     }
   };

@@ -14,5 +14,23 @@
     "chatEnterMessage": "Enter message...",
 
     "haveAccount": "Already have an account?",
-    "notHaveAccount": " Don't have an account?"
+    "notHaveAccount": " Don't have an account?",
+
+    "email": "Email",
+    "password": "Password",
+    "userName": "User name",
+    "repeatPassword": "Repeat password",
+
+    "register": "Register",
+    "signUpWithGoogle": "Sign up with google",
+    "loginWithGoogle": "Logitn with google",
+    "registerSuccess": "Register success",
+    "registerUnsuccess": "Register unsuccess",
+    "loginSuccess": "Login success",
+    "loginUnsuccess": "Login unsuccess",
+
+    "sendingError": "There was an error sending your request",
+    "loginFailed": "Login failed. Please check your credentials",
+    "passwordDoNotMatch": "Passwords do not match!",
+    "invalidEmail": "Please enter a valid email."
 }

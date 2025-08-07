@@ -11,31 +11,31 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const notifyLight = () =>
-    toast.success("Register success!", {
+    toast.success(t("registerSuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "light",
     });
 
   const notifyDark = () =>
-    toast.success("Regiser success!", {
+    toast.success(t("registerSuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "dark",
     });
 
   const notifyLightError = () =>
-    toast.error("Register unsuccess!", {
+    toast.error(t("registerUnsuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "light",
     });
 
   const notifyDarkError = () =>
-    toast.error("Regiser unsuccess!", {
+    toast.error(t("registerUnsuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "dark",
@@ -44,11 +44,11 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (password !== confirmPassword) {
-      setErrorMessage("Passwords do not match!");
+      setErrorMessage(t("passwordDoNotMatch"));
       return;
     }
     if (!email.includes("@")) {
-      setErrorMessage("Please enter a valid email.");
+      setErrorMessage(t("invalidEmail"));
       return;
     }
 
@@ -66,38 +66,38 @@ const RegisterForm = ({ onSubmit, onGoogleLogin }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Username"
+        placeholder={t("userName")}
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
       />
       <input
         type="email"
-        placeholder="Email"
+        placeholder={t("email")}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder={t("password")}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
       <input
         type="password"
-        placeholder="Repeat password"
+        placeholder={t("repeatPassword")}
         value={confirmPassword}
         onChange={(e) => setConfirmPassword(e.target.value)}
         required
       />
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <button type="submit" className="submit-button">
-        Register
+        {t("register")}
       </button>
       <button onClick={onGoogleLogin} className="google-button">
-        Sign up with Google
+        {t("signUpWithGoogle")}
         <img
           src="/images/google-icon.png"
           alt="Google icon"
