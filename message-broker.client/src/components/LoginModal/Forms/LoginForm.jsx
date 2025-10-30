@@ -9,31 +9,31 @@ const LoginForm = ({ onSubmit, onGoogleLogin }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const { t, i18n } = useTranslation();
+  const { t } = useTranslation();
 
   const notifyLight = () =>
-    toast.success("Login success!", {
+    toast.success(t("loginSuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "light",
     });
 
   const notifyDark = () =>
-    toast.success("Login success!", {
+    toast.success(t("loginSuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "dark",
     });
 
   const notifyLightError = () =>
-    toast.error("Login unsuccess!", {
+    toast.error(t("loginUnsuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "light",
     });
 
   const notifyDarkError = () =>
-    toast.error("Login unsuccess!", {
+    toast.error(t("loginUnsuccess"), {
       autoClose: 3000,
       draggable: true,
       theme: "dark",
@@ -47,7 +47,7 @@ const LoginForm = ({ onSubmit, onGoogleLogin }) => {
       onSubmit(result);
       setErrorMessage("");
     } catch (error) {
-      setErrorMessage("Login failed. Please check your credentials.");
+      setErrorMessage(t("loginFailed"));
     }
   };
 
@@ -55,26 +55,26 @@ const LoginForm = ({ onSubmit, onGoogleLogin }) => {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Email"
+        placeholder={t("email")}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
       />
       <input
         type="password"
-        placeholder="Password"
+        placeholder={t("password")}
         value={password}
         onChange={(e) => setPassword(e.target.value)}
         required
       />
       {errorMessage && <div className="error-message">{errorMessage}</div>}
       <button type="submit" className="submit-button">
-        Login
+        {t("login")}
       </button>
       <button onClick={onGoogleLogin} className="google-button">
-        Login with Google
+        {t("loginWithGoogle")}
         <img
-          src=".././public/locales/google-icon.png"
+          src="/images/google-icon.png"
           alt="Google icon"
           className="google-icon"
         />

@@ -14,5 +14,23 @@
     "chatEnterMessage": "輸入訊息...",
 
     "haveAccount": "已經有帳戶了嗎？",
-    "notHaveAccount": "沒有帳戶嗎？"
+    "notHaveAccount": "沒有帳戶嗎？",
+
+    "email": "電子郵件",
+    "password": "密碼",
+    "userName": "使用者名稱",
+    "repeatPassword": "重複密碼",
+
+    "register": "註冊",
+    "signUpWithGoogle": "使用 Google 註冊",
+    "loginWithGoogle": "使用 google 登入",
+    "registerSuccess": "註冊成功",
+    "registerUnsuccess": "註冊失敗",
+    "loginSuccess": "登錄成功",
+    "loginUnsuccess": "登錄失敗",
+
+    "sendingError": "發送您的請求時出現錯誤",
+    "loginFailed": "登入失敗。請檢查您的憑證",
+    "passwordDoNotMatch": "密碼不匹配！",
+    "invalidEmail": "請輸入有效的電子郵件。"
 }

@@ -14,5 +14,23 @@
     "chatEnterMessage": "Введите сообщение...",
 
     "haveAccount": "Уже есть аккаунт?",
-    "notHaveAccount": "Нету аккаунта?"
+    "notHaveAccount": "Нету аккаунта?",
+
+    "email": "Email",
+    "password": "Пароль",
+    "userName": "Имя пользователя",
+    "repeatPassword": "Повторите пароль",
+
+    "register": "Зарегистрироваться",
+    "signUpWithGoogle": "Зарегистрироваться с помощью Google",
+    "loginWithGoogle": "Войти с помощью google",
+    "registerSuccess": "Успешная регистрация",
+    "registerUnsuccess": "Неуспешная регистрация",
+    "loginSuccess": "Успешный вход",
+    "loginUnsuccess": "Неуспешный вход",
+
+    "sendingError": "Возникла проблема во время запроса",
+    "loginFailed": "Не удалось войти, пожалуйста, проверьте введенные данные",
+    "passwordDoNotMatch": "Недостаточный пароль!",
+    "invalidEmail": "Пожалуйста, введите валидый пароль"
 }

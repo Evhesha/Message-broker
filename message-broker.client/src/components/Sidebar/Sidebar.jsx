@@ -42,7 +42,7 @@ const Sidebar = ({
 
   return (
     <div className={`sidebar ${isDarkTheme ? "dark" : ""}`}>
-      <img src="/bntu_assistent_logo.png" alt="BNTU Assistant Logo" />
+      <img src="/images/bntu_assistent_logo.png" alt="BNTU Assistant Logo" />
 
       <div className="sidebar-header">
         <button
